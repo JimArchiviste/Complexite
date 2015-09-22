@@ -4,7 +4,7 @@ programme : main.o verification.o
 main.o : main.c
 	gcc -c $< -o $@
 
-verification.o : verification.cpp verification.h
+verification.o : verification.c verification.h
 	gcc -c $< -o $@
 
 

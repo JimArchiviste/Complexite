@@ -1,4 +1,4 @@
-#include verification.h
+#include "verification.h"
 
 
 /**
@@ -19,7 +19,7 @@ int verification(int* desert, graph g)
 	{
 		while(j<size && res)
 		{
-			if(g->edges[desert[i]][desert[j]])
+			if(g.edges[desert[i]][desert[j]])
 			{
 				res = 0;
 			}

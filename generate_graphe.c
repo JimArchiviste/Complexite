@@ -1,11 +1,9 @@
-#include genereate_graphe.h
-#include types.h
-#include <stdlib.h>
+#include "generate_graphe.h"
 
-void new_graph(int n)
+int new_graph(int n)
 {
-	graph g;
-	g.n = n;
+	/*graph g;
+	g.n = n;*/
 	int i,j;
 	i = 0;
 	j = 1;
@@ -20,5 +18,6 @@ void new_graph(int n)
 		i++;
 		j = i+1;
 	}
+	return 1;
 	//return res;
 }

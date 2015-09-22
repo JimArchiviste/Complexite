@@ -1,7 +1,7 @@
 #ifndef VERIF
 #define VERIF
 
-#include types.h
+#include "tools.h"
 
 int verification(int* desert, graph g);
 

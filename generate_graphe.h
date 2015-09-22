@@ -2,7 +2,9 @@
 #define GENERATE
 
 #include "types.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-graph new_graph(int n);
+int new_graph(int n);
 
 #endif
