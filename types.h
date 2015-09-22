@@ -23,3 +23,4 @@ typedef struct
 	int n;										//effective number of vertices of the graph
 	list edges[NB_VERTICES];
 } graph_l;
+*/
