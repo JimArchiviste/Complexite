@@ -4,12 +4,12 @@
 /**auteur : Guélaud*/
 int maximal(int* desert, graph g)
 {
-	int res,i,j,desert_size;
+	int res,ig,ix,size_desert;
 	res = 1;
 	ig = 0;
 	ix = 0;
 	size_desert = tab_size(desert);
-	while(res && ig < n)
+	while(res && ig < g.n)
 	{
 		while(desert[ix]==ig)
 		{
@@ -18,7 +18,7 @@ int maximal(int* desert, graph g)
 		int j = 1;
 		while(j && ix < size_desert)
 		{
-			if(g->edges[ig][desert[ix]] == 1)
+			if(g.edges[ig][desert[ix]] == 1)
 			{
 				j = 0;
 			}
@@ -27,4 +27,5 @@ int maximal(int* desert, graph g)
 		ix = 0;
 		ig++;
 	}
+	return res;
 }
