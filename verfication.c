@@ -1,19 +1,5 @@
 #include verification.h
 
-/**
- * \brief Calculates the length of an array
- * \param tab An array of any type
- * \return The length of the array
- * \author Alexandre Leonardi 	
- */
-int tab_size(void* tab)
-{
-	if(tab == NULL)
-	{
-		return 0;
-	}
-	return(sizeof(tab)/sizeof(tab[0]));
-}
 
 /**
  * \brief Checks if a set of vertices is a desert subgraph of a given graph
