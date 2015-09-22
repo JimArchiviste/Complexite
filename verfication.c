@@ -1,5 +1,7 @@
 #include verification.h
 
+
+//auteur : Alexandre
 int tab_size(void* tab)
 {
 	if(tab == NULL)
@@ -9,6 +11,7 @@ int tab_size(void* tab)
 	return(sizeof(tab)/sizeof(tab[0]));
 }
 
+//auteur : Guélaud
 int verification(int* desert, graph g)
 {
 	int res,i,j;
