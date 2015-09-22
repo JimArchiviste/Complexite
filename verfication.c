@@ -1,14 +1,13 @@
 #include verification.h
 
-int tab_size(void* tab)
-{
-	if(tab == NULL)
-	{
-		return 0;
-	}
-	return(sizeof(tab)/sizeof(tab[0]));
-}
 
+/**
+ * \brief Checks if a set of vertices is a desert subgraph of a given graph
+ * \param desert An array of int representing the subgraph to check
+ * \param g The aforementioned graph
+ * \return 1 if desert is a desert subgraph of g, 0 otherwise
+ * \author Guélaud Lepetit
+ */
 int verification(int* desert, graph g)
 {
 	int res,i,j;

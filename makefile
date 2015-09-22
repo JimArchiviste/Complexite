@@ -1,7 +1,7 @@
 programme : main.o verification.o
 	gcc $^ -o $@
 
-main.o : main.cpp
+main.o : main.c
 	gcc -c $< -o $@
 
 verification.o : verification.cpp verification.h
