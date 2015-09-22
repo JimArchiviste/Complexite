@@ -1,5 +1,5 @@
-#include tools.h
-#include maximal.h
+#include "tools.h"
+#include "maximal.h"
 
 /**auteur : Guélaud*/
 int maximal(int* desert, graph g)

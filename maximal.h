@@ -1,7 +1,7 @@
 #ifndef MAXIMAL
 #define MAXIMAL
 
-#include types.h
+#include "types.h"
 
 int maximal(int* desert, graph g);
 
