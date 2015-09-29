@@ -5,6 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int new_graph(int n);
+int gengraph(int n);
 
 #endif

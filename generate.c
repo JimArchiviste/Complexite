@@ -1,6 +1,6 @@
-#include "generate_graphe.h"
+#include "generate.h"
 
-int new_graph(int n)
+int genGraph(int n)
 {
 	/*graph g;
 	g.n = n;*/
