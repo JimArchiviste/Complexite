@@ -1,5 +1,5 @@
-#ifndef CHECK
-#define CHECK
+#ifndef MAXIMUM
+#define MAXIMUM
 
 #include "tools.h"
 
