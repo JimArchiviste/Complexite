@@ -15,7 +15,7 @@ typedef struct link
 {
 	vertex v;
 	struct link* next;
-}
+};
 
 typedef struct link* vertices_set;
 
