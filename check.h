@@ -1,5 +1,5 @@
-#ifndef VERIF
-#define VERIF
+#ifndef CHECK
+#define CHECK
 
 #include "tools.h"
 
