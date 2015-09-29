@@ -11,7 +11,7 @@ int new_graph(int n)
 	{
 		while(j<n)
 		{
-			int rand_num = rand() % 1;
+			int rand_num = rand() % 2;
 			printf("%d", rand_num);			
 			j++;
 		}
