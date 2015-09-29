@@ -4,6 +4,6 @@
 
 int main (int argc, char *argv[])
 {
-	genGraph(10);
+	genGraph("mon_chmein");
 	return EXIT_SUCCESS;
 }
