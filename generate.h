@@ -8,6 +8,6 @@
 
 #define TAILLE_MAX 1000
 
-graph new_graph(char *path);
+graph gen_graph(char *path);
 
 #endif

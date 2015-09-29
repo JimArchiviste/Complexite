@@ -1,6 +1,6 @@
 #include "generate_graphe.h"
 
-graph new_graph(char *path)
+graph gen_graph(char *path)
 {
 	graph g;
 	

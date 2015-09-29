@@ -3,6 +3,7 @@
 
 #include "types.h"
 
-int maximal(int* desert, graph g);
+graph exMaximal(graph g);
+graph exMaximum(graph g);
 
 #endif

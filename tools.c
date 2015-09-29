@@ -6,7 +6,7 @@
  * \return The length of the array
  * \author Alexandre Leonardi 	
  */
-int tab_size(void* tab)
+int getSize(void* tab)
 {
 	if(tab == NULL)
 	{
