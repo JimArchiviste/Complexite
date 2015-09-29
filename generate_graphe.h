@@ -4,7 +4,10 @@
 #include "types.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
-int new_graph(int n);
+#define TAILLE_MAX 1000
+
+graph new_graph(char *path);
 
 #endif

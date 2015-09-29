@@ -1,23 +1,22 @@
 #include "generate_graphe.h"
 
-int new_graph(int n)
+graph new_graph(char *path)
 {
-	/*graph g;
-	g.n = n;*/
-	int i,j;
-	i = 0;
-	j = 1;
-	while(i<n)
+	graph g;
+	
+	FILE* fichier = NULL;
+	fichier = fopen(path, "r");
+	char chaine[TAILLE_MAX] = "";
+	
+	if(fichier != NULL)
 	{
-		while(j<n)
+		while (fgets(chaine, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
 		{
-			int rand_num = rand() % 2;
-			printf("%d", rand_num);			
-			j++;
+
+			printf("%s", chaine); // On affiche la chaîne qu'on vient de lire
+
 		}
-		i++;
-		j = i+1;
 	}
-	return 1;
-	//return res;
+	
+	return g;
 }
