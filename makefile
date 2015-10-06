@@ -1,13 +1,13 @@
-programme : main.o verification.o generate_graphe.o tools.o desert_maximal.o
+programme : main.o check.o generate.o tools.o desert_maximal.o
 	gcc $^ -o $@
 
 main.o : main.c
 	gcc -c $< -o $@
 
-verification.o : verification.c verification.h
+check.o : check.c check.h
 	gcc -c $< -o $@
 
-generate_graphe.o : generate_graphe.c generate_graphe.h
+generate.o : generate.c generate.h
 	gcc -c $< -o $@
 
 tools.o : tools.c tools.h

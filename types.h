@@ -11,13 +11,13 @@ typedef struct
 	int edges[NB_VERTICES][NB_VERTICES];
 } graph;
 
-typedef struct link
+typedef struct LINK
 {
 	vertex v;
 	struct link* next;
-};
+} link;
 
-typedef struct link* vertices_set;
+typedef link* vertices_set;
 
 // List version of the graph representation
 /*

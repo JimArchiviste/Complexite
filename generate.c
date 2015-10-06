@@ -1,4 +1,4 @@
-#include "generate_graphe.h"
+#include "generate.h"
 
 graph genGraph(char *path)
 {
@@ -13,7 +13,7 @@ graph genGraph(char *path)
 		while (fgets(chaine, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
 		{
 
-			printf("%s", chaine); // On affiche la chaîne qu'on vient de lire
+			printf("%s\n", chaine); // On affiche la chaîne qu'on vient de lire
 
 		}
 	}
