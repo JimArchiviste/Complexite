@@ -14,7 +14,7 @@ int isDesert(int* desert, graph g)
 	res = 1;
 	i = 0;
 	j = 1;
-	int size = tab_size(desert);
+	int size = getSize(desert);
 	while(i<size && res)
 	{
 		while(j<size && res)
@@ -44,7 +44,7 @@ int isMaximal(int* desert, graph g)
 	res = 1;
 	ig = 0;
 	ix = 0;
-	size_desert = tab_size(desert);
+	size_desert = getSize(desert);
 	while(res && ig < g.n)
 	{
 		if(desert[ix] == ig)
