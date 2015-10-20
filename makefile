@@ -16,6 +16,8 @@ tools.o : tools.c tools.h
 desert_maximal.o : desert_maximal.c desert_maximal.h
 	gcc -c $< -o $@
 
+extract.o : extract.c extract.h
+	gcc -c &< -o &@
 
 clean :
 	rm -rf *.o
