@@ -4,33 +4,23 @@
 graph exMaximal(graph g)
 {
 	graph gmax;
-	return desert_maximal2(g,0,0,*gmax);
+	exMaximal_rec(g, 0, 0, &gmax);
 }
 
-
-graph exMaximal_rec(graph g, int i, int j, graph* gmax)
+void exMaximal_rec(graph g, int i, int j, graph* gmax)
 {
-	if(i==j)
+	if( i != j )
 	{
-		if(i==g.n-1)
-			return gmax;		
-	}
-	
-	
-	else
-	{
-		if(g[i][j]=!1) 
+		if( g.edges[i][j] != 1 ) 
 		{
 			//if(verif(gmax,j)) //verification dans gmax
-			gmax.edges[i][j] = 1;
-			gmax.edges[j][i] = 1;
+			gmax->edges[i][j] = 1;
+			gmax->edges[j][i] = 1;
 		}
 	}
 		
 		
-	exMaximal_incr(&i,&j,g);			
-	return exMaximal_rec(g,i,j,gmax);
-	
+	exMaximal_incr(&i, &j, g);	
 }
 				
 		

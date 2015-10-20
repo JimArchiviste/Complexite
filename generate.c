@@ -1,5 +1,7 @@
 #include "generate.h"
 
+#define TAILLE_MAX 1000
+
 graph genGraph(char *path)
 {
 	graph g;
