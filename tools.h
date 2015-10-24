@@ -6,6 +6,6 @@
 #include <stdio.h>
 
 int getSize(void* tab);
-void drawGraph(void* tab);
+void drawGraph(graph g);
 
 #endif

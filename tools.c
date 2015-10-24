@@ -15,13 +15,14 @@ int getSize(void* tab)
 	return(sizeof(tab)/sizeof(tab[0]));
 }
 
-void drawGraph(void* tab)
+void drawGraph(graph g)
 {
-	int tab_size = getSize(tab);
+	int* edges = g->edges;
+	int nb_vertices = g->n;
 	int i, j;
-	for(i = 0 ; i < tab_size ; i++)
+	for(i = 0 ; i < nb_vertices ; i++)
 	{
-		for(j = 0 ; j < tab_size ; j++)
+		for(j = 0 ; j < nb_vertices ; j++)
 		{
 			if(i = 0)
 			{
@@ -35,7 +36,7 @@ void drawGraph(void* tab)
 				}
 				else
 				{
-					printf(tab[i][j]);
+					printf("/t"+edges[i][j]);
 				}					
 			}
 		}
