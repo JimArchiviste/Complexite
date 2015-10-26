@@ -29,6 +29,28 @@ void exMaximal_rec(graph g, int i, int j, graph* gmax, graph* g)
 			
 	
 }
+/*
+1- Sous graphe mais pas maximal
+1-1: Pas sous graphe
+1-2: Pas sous graphe
+1-3: Sous graphe non maximal
+	1-3-1: pas sous graphe
+	...
+	1-3-5: sous graphe et maximal: arret final ?
+1-..
+...
+2- sous graphe mais pas maximal
+2-1: pas sous graphe
+...
+2-4: sous graphe non maximal
+	2-4-1: non sous graphe
+	...
+	2-4-6: sous graphe maximal
+...
+
+
+
+*/
 				
 		
 
