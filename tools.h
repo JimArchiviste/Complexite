@@ -8,6 +8,6 @@
 int get_size(void* tab);
 void draw_graph(graph g);
 void memorize(int* desert, int** res);
-void copy(int* src, int* dest);
+void copy(void* src, void* dest);
 
 #endif

@@ -17,7 +17,6 @@ void desert_maximum_exact_rec(graph g, int* desert, int** res, int rank)
 		//et si oui on ne continue pas plus loin les appels récursifs, mais on stocke desert dans res
 		if(is_maximal(desert, g) && is_desert(desert, g))
 		{
-			//à écrire dans ce fichier ? ou tools ?
 			memorize(desert, res);
 			go_on = 0;
 			//évolution à ajouter : si notre graphe n'est pas désert, on pourrait mettre go_on à 0 => pas la peine de perdre du temps

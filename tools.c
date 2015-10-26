@@ -6,7 +6,7 @@
  * \return The length of the array
  * \author Alexandre Leonardi 	
  */
-int getSize(void* tab)
+int get_size(void* tab)
 {
 	if(tab == NULL)
 	{
@@ -15,7 +15,7 @@ int getSize(void* tab)
 	return(sizeof(tab)/sizeof(tab[0]));
 }
 
-void drawGraph(graph g)
+void draw_graph(graph g)
 {
 	int* edges = g->edges;
 	int nb_vertices = g->n;
@@ -40,5 +40,27 @@ void drawGraph(graph g)
 				}					
 			}
 		}
+	}
+}
+
+
+void memorize(int* desert, int** res)
+{
+	
+	res = (int**)realloc(res, sizeof(desert) + sizeof(res));
+
+}
+
+void copy(void* src, voidvoid* dest)
+{
+	int n = get_size(src);
+	int i;
+	if(sizeof(src) != sizeof(dest))
+	{
+		printf("[tools/copy] ERROR : you can't an array into another  if they are not of the same length !");
+	}
+	for(i=0 ; i<n ; i++)
+	{
+		dest[i] = src[i];
 	}
 }
