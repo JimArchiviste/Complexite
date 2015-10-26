@@ -8,7 +8,7 @@
  * \return 1 if desert is a desert subgraph of g, 0 otherwise
  * \author Guélaud Lepetit
  */
-int isDesert(int* desert, graph g)
+int is_desert(int* desert, graph g)
 {
 	int res,i,j;
 	res = 1;
@@ -38,7 +38,7 @@ int isDesert(int* desert, graph g)
  * \return 1 if desert is a desert subgraph of g, 0 otherwise
  * \author Guélaud Lepetit
  */
-int isMaximal(int* desert, graph g)
+int is_maximal(int* desert, graph g)
 {
 	int res,ig,ix,size_desert;
 	res = 1;

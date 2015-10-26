@@ -1,13 +1,13 @@
 #include "tools.h"
 #include "extract.h"
 
-graph exMaximal(graph g)
+graph extract_maximal(graph g)
 {
 	graph gmax;
-	exMaximal_rec(g, 0, 0, &gmax);
+	extract_maximal_rec(g, 0, 0, &gmax);
 }
 
-void exMaximal_rec(graph g, int i, int j, graph* gmax)
+void extract_maximal_rec(graph g, int i, int j, graph* gmax)
 {
 	if( i != j )
 	{
@@ -20,12 +20,12 @@ void exMaximal_rec(graph g, int i, int j, graph* gmax)
 	}
 		
 		
-	exMaximal_incr(&i, &j, g);	
+	extract_maximal_incr(&i, &j, g);	
 }
 				
 		
 
-void exMaximal_incr(int* i, int* j, graph g)
+void extract_maximal_incr(int* i, int* j, graph g)
 {
 	if (*j == g.n )
 	{
