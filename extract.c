@@ -10,7 +10,7 @@ graph exMaximal(graph g)
 
 void exMaximal_rec(int i, int j, graph* gmax, graph* g)
 {
-	if( ! Maximal(gmax, g) ) //si le sous graphe n'est pas maximal
+	if( ! Maximal(gmax, g) && i!= g->n && j!= g->n) //si le sous graphe n'est pas maximal
 	{
 		if( verification(gmax, g) ) //si le sous graphe est bien un sous graphe desert
 		{
@@ -23,6 +23,11 @@ void exMaximal_rec(int i, int j, graph* gmax, graph* g)
 				exMaximal_decr(&i,&j,*g);
 				gmax->edges[i][j] = 0;
 				gmax->edges[j][i] = 0;
+
+	
+				exMaximal_incr(&i,&j,*g);
+				exMaximal_incr(&i,&j,*g); //on saute le problème et on avance
+				exMaximal_rec(i,j,gmax,g);
 		}
 	}
 	//sinon il est maximal
