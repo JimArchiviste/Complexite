@@ -10,24 +10,29 @@ graph extract_maximal(graph g)
 
 void exMaximal_rec(int i, int j, graph* gmax, graph* g)
 {
-	if( ! Maximal(gmax, g) ) //si le sous graphe n'est pas maximal
-	{
-		if( verification(gmax, g) ) //si le sous graphe est bien un sous graphe desert
-		{
-				gmax->edges[i][j] = 1;
-				gmax->edges[j][i] = 1;
-				exMaximal_incr(&i,&j,*g); //on avance
-				exMaximal_rec(i,j,gmax,g);
-			}
-		else {
-				exMaximal_decr(&i,&j,*g);
-				gmax->edges[i][j] = 0;
-				gmax->edges[j][i] = 0;
-		}
-	}
+ if( ! Maximal(gmax, g) ) //si le sous graphe n'est pas maximal
+ {
+  if( verification(gmax, g) ) //si le sous graphe est bien un sous graphe desert
+  {
+    gmax->edges[i][j] = 1;
+    gmax->edges[j][i] = 1;
+    exMaximal_incr(&i,&j,*g); //on avance
+    exMaximal_rec(i,j,gmax,g);
+   }
+  else {
+    exMaximal_decr(&i,&j,*g);
+    gmax->edges[i][j] = 0;
+    gmax->edges[j][i] = 0;
 
-	extract_maximal_incr(&i, &j, g);	
-
+ 
+    exMaximal_incr(&i,&j,*g);
+    exMaximal_incr(&i,&j,*g); //on saute le problème et on avance
+    exMaximal_rec(i,j,gmax,g);
+  }
+ }
+ //sinon il est maximal
+   
+ 
 }
 /*
 1- Sous graphe mais pas maximal
