@@ -4,11 +4,11 @@
 graph exMaximal(graph g)
 {
 	graph gmax;
-	exMaximal_rec(g, 0, 0, &gmax, &g);
+	exMaximal_rec(0, 0, &gmax, &g);
 	return gmax;
 }
 
-void exMaximal_rec(graph g, int i, int j, graph* gmax, graph* g)
+void exMaximal_rec(int i, int j, graph* gmax, graph* g)
 {
 	if( ! Maximal(gmax, g) ) //si le sous graphe n'est pas maximal
 	{
@@ -16,11 +16,11 @@ void exMaximal_rec(graph g, int i, int j, graph* gmax, graph* g)
 		{
 				gmax->edges[i][j] = 1;
 				gmax->edges[j][i] = 1;
-				exMaximal_incr(&i,&j,g); //on avance
-				exMaximal_rec(g,i,j,gmax,g);
+				exMaximal_incr(&i,&j,*g); //on avance
+				exMaximal_rec(i,j,gmax,g);
 			}
 		else {
-				exMaximal_decr(&i,&j,g);
+				exMaximal_decr(&i,&j,*g);
 				gmax->edges[i][j] = 0;
 				gmax->edges[j][i] = 0;
 		}
