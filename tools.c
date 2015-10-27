@@ -17,8 +17,8 @@ int get_size(void* tab)
 
 void draw_graph(graph g)
 {
-	int* edges = g->edges;
-	int nb_vertices = g->n;
+	int** edges = g.edges;
+	int nb_vertices = g.n;
 	int i, j;
 	for(i = 0 ; i < nb_vertices ; i++)
 	{
@@ -32,11 +32,11 @@ void draw_graph(graph g)
 			{
 				if(j = 0)
 				{
-					printf(i);
+					printf("%d",i);
 				}
 				else
 				{
-					printf("/t"+edges[i][j]);
+					printf("/t%d",edges[i][j]);
 				}					
 			}
 		}
@@ -51,7 +51,7 @@ void memorize(int* desert, int** res)
 
 }
 
-void copy(void* src, voidvoid* dest)
+void copy(int* src, int* dest)
 {
 	int n = get_size(src);
 	int i;

@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "generate.h"
+#include "generate_graph.h"
 
 int main (int argc, char *argv[])
 {

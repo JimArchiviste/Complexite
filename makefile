@@ -1,4 +1,4 @@
-programme : main.o tools.o check.o extract.o generate.o
+programme : main.o tools.o check.o extract.o generate_graph.o
 	gcc $^ -o $@
 
 main.o : main.c
@@ -13,7 +13,7 @@ check.o : check.c check.h
 extract.o : extract.c extract.h
 	gcc -c $< -o $@
 
-generate.o : generate.c generate.h
+generate_graph.o : generate_graph.c generate_graph.h
 	gcc -c $< -o $@
 
 clean :
