@@ -10,9 +10,9 @@ graph extract_maximal(graph g)
 
 void exMaximal_rec(int i, int j, graph* gmax, graph* g)
 {
-	if( ! Maximal(gmax, g) && i!= g->n && j!= g->n) //si le sous graphe n'est pas maximal
+	if( ! is_maximal(gmax, g) && i!= g->n && j!= g->n) //si le sous graphe n'est pas maximal
 	{
-		if( verification(gmax, g) ) //si le sous graphe est bien un sous graphe desert
+		if( is_desert(gmax, g) ) //si le sous graphe est bien un sous graphe desert
 		{
 				gmax->edges[i][j] = 1;
 				gmax->edges[j][i] = 1;
