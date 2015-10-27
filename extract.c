@@ -28,6 +28,8 @@ void exMaximal_rec(int i, int* gmax, graph* g)
 		else {
 				if(i!=0)
 					gmax[i-1] = 0;
+				else
+					gmax[i]=0;
 				exMaximal_rec(i+1,gmax,g);
 		}
 	}
