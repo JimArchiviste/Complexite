@@ -1,4 +1,4 @@
-#include "generate.h"
+#include "generate_graph.h"
 
 #define TAILLE_MAX 1000
 
@@ -16,7 +16,7 @@ graph gen_graph(char *path)
 		int j = 0;
 		while ( j < NB_VERTICES)
 		{
-			g->edges[i][j] = 0;
+			g.edges[i][j] = 0;
 		}
 	}
 	
@@ -33,8 +33,8 @@ graph gen_graph(char *path)
 				int i = atoi(ichar);
 				int j = atoi(jchar);
 				
-				g->edges[i][j] = 1;
-				g->edges[j][i] = 1;
+				g.edges[i][j] = 1;
+				g.edges[j][i] = 1;
 			}
 			i++;
 		}
