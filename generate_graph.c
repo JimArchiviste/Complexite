@@ -7,7 +7,7 @@ graph* gen_graph(char* path)
 	graph* g;
 	char *buffer, *charx, *chary;
 	int i,j,x,y;
-	
+
 	FILE* file = NULL;
 	if((file = fopen(path, "r")) == NULL)
 	{
@@ -17,8 +17,8 @@ graph* gen_graph(char* path)
 	{
 		buffer = (char*)malloc(sizeof(char)*MAX_SIZE);
 		g = (graph*)malloc(sizeof(graph));
-		
-		i = 0;		
+
+		i = 0;
 		while ( i < NB_VERTICES)
 		{
 
@@ -33,12 +33,11 @@ graph* gen_graph(char* path)
 		}
 
 		i = 0;
-		
+
 		fgets(buffer, MAX_SIZE, file);
 		g->n = atoi(strtok(buffer," "));
-		printf("%d\n",g->n);
 
-		while (fgets(buffer, MAX_SIZE, file) != NULL && !reached_EOF(buffer)) 
+		while (fgets(buffer, MAX_SIZE, file) != NULL && !reached_EOF(buffer))
 		{
 			charx = strtok(buffer, " ");
 			chary = strtok(NULL, " ");
@@ -51,6 +50,6 @@ graph* gen_graph(char* path)
 		}
 	free(buffer);
 	}
-	
+
 	return g;
 }

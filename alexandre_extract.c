@@ -1,5 +1,5 @@
 #include "tools.h"
-#include "extract.h"
+#include "alexandre_extract.h"
 #include "check.h"
 
 void maximal(graph g, int* max)
@@ -29,5 +29,5 @@ int* maximal_rec(graph g, int* max, int depth)
 	}
 
 	//maintenant, appel récursif en augmentant la profondeur d'un cran
-	maximal_rec(g,max,depth+1);
+	return maximal_rec(g,max,depth+1);
 }

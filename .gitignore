@@ -28,6 +28,8 @@
 *.x86_64
 *.hex
 programme
+generate
+types
 
 # Debug files
 *.dSYM/
