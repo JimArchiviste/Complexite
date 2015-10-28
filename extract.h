@@ -2,7 +2,8 @@
 #define MAXIMAL
 
 #include "types.h"
-#include "check.h"
+#include "tools.h"
+#include "verification.h"
 
 int* extract_maximal(graph g);
 void exMaximal_rec(int i, int* gmax, graph* g);

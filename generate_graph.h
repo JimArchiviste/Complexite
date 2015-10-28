@@ -7,6 +7,6 @@
 #include <stdio.h>
 #include <string.h>
 
-graph* gen_graph(char *path);
+graph* gen_graph(char *path, graph *g);
 
 #endif

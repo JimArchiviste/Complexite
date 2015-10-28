@@ -2,7 +2,7 @@
 #define DESERT_MAXIMUM_EXACT
 
 #include "types.h"
-#include "check.h"
+#include "verification.h"
 #include <stdlib.h>
 #include <stdio.h>
 

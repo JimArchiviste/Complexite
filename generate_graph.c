@@ -2,9 +2,8 @@
 
 #define MAX_SIZE 128
 
-graph* gen_graph(char* path)
+graph* gen_graph(char* path, graph *g)
 {
-	graph* g;
 	char *buffer, *charx, *chary;
 	int i,j,x,y;
 
@@ -16,7 +15,6 @@ graph* gen_graph(char* path)
 	else
 	{
 		buffer = (char*)malloc(sizeof(char)*MAX_SIZE);
-		g = (graph*)malloc(sizeof(graph));
 
 		i = 0;
 		while ( i < NB_VERTICES)

@@ -6,39 +6,34 @@
  * \return The length of the array
  * \author Alexandre Leonardi 	
  */
-int get_size(void* tab)
+int get_size_int(int* tab)
 {
 	if(tab == NULL)
 	{
 		return 0;
 	}
-	return(sizeof(tab)/sizeof(tab[0]));
+	return(sizeof(tab)/sizeof(int));
 }
+
+int get_size_char(char* tab)
+{
+	if(tab == NULL)
+	{
+		return 0;
+	}
+	return(sizeof(tab)/sizeof(char));
+}
+
 
 void draw_graph(graph g)
 {
-	int **edges = g.edges;
-	int nb_vertices = g.n;
 	int i, j;
-	for(i = 0 ; i < nb_vertices ; i++)
+	printf("nb sommets : %d\n",g.n);
+	for(i = 0 ; i < g.n ; i++)
 	{
-		for(j = 0 ; j < nb_vertices ; j++)
+		for(j = i ; j < g.n ; j++)
 		{
-			if(i = 0)
-			{
-				printf("/t"+j);
-			}
-			else
-			{
-				if(j = 0)
-				{
-					printf("%d",i);
-				}
-				else
-				{
-					printf("/t%d",edges[i][j]);
-				}					
-			}
+			if(g.edges[i][j]) printf("[%d] <--> [%d]\n",i,j);
 		}
 	}
 }
@@ -53,7 +48,7 @@ void memorize(int* desert, int** res)
 
 void copy(int* src, int* dest)
 {
-	int n = get_size(src);
+	int n = get_size_int(src);
 	int i;
 	if(sizeof(src) != sizeof(dest))
 	{
@@ -67,7 +62,7 @@ void copy(int* src, int* dest)
 
 int reached_EOF(char* string)
 {
-	int n = get_size(string);
+	int n = get_size_char(string);
 	int i;
 	int eof = 0;
 	while(i<n && !eof)
