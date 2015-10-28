@@ -17,7 +17,7 @@ int get_size(void* tab)
 
 void draw_graph(graph g)
 {
-	int** edges = g.edges;
+	int **edges = g.edges;
 	int nb_vertices = g.n;
 	int i, j;
 	for(i = 0 ; i < nb_vertices ; i++)
@@ -63,4 +63,17 @@ void copy(int* src, int* dest)
 	{
 		dest[i] = src[i];
 	}
+}
+
+int reached_EOF(char* string)
+{
+	int n = get_size(string);
+	int i;
+	int eof = 0;
+	while(i<n && !eof)
+	{
+		if(string[i] == '\0') eof=1;
+		i++;
+	}
+	return eof;
 }

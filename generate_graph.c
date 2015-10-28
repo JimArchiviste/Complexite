@@ -1,43 +1,55 @@
 #include "generate_graph.h"
 
-#define TAILLE_MAX 1000
+#define MAX_SIZE 128
 
-graph gen_graph(char *path)
+graph* gen_graph(char* path)
 {
-	graph g;
+	graph* g;
+	char *buffer, *charx, *chary;
+	int i,j,x,y;
 	
-	FILE* fichier = NULL;
-	fichier = fopen(path, "r");
-	char chaine[TAILLE_MAX] = "";
-	
-	int i = 0;
-	while ( i < NB_VERTICES)
+	FILE* file = NULL;
+	if((file = fopen(path, "r")) == NULL)
 	{
-		int j = 0;
-		while ( j < NB_VERTICES)
-		{
-			g.edges[i][j] = 0;
-		}
+		printf("[generate_graph/gen_graph] ERROR : the specified path doesn't refer to an existiging file !\n");
 	}
-	
-	if(fichier != NULL)
+	else
 	{
-		int i = 0;
-		while (fgets(chaine, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
+		buffer = (char*)malloc(sizeof(char)*MAX_SIZE);
+		g = (graph*)malloc(sizeof(graph));
+		
+		i = 0;		
+		while ( i < NB_VERTICES)
 		{
-			if(i != 0)
+
+			j = 0;
+			while ( j < NB_VERTICES)
 			{
-				char * ichar = strtok (chaine," ");
-				char * jchar = strtok (chaine," ");
-				
-				int i = atoi(ichar);
-				int j = atoi(jchar);
-				
-				g.edges[i][j] = 1;
-				g.edges[j][i] = 1;
+
+				g->edges[i][j] = 0;
+				j++;
 			}
 			i++;
 		}
+
+		i = 0;
+		
+		fgets(buffer, MAX_SIZE, file);
+		g->n = atoi(strtok(buffer," "));
+		printf("%d\n",g->n);
+
+		while (fgets(buffer, MAX_SIZE, file) != NULL && !reached_EOF(buffer)) 
+		{
+			charx = strtok(buffer, " ");
+			chary = strtok(NULL, " ");
+
+			x = atoi(charx);
+			y = atoi(chary);
+
+			g->edges[x][y] = 1;
+			g->edges[y][x] = 1;
+		}
+	free(buffer);
 	}
 	
 	return g;

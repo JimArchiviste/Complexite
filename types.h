@@ -1,7 +1,7 @@
 #ifndef TYPE
 #define TYPE
 
-#define NB_VERTICES 10 
+#define NB_VERTICES 1000
 
 typedef int vertex;								//a simple alias for lisibility
 
