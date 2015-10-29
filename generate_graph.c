@@ -35,7 +35,7 @@ graph* gen_graph(char* path, graph *g)
 		fgets(buffer, MAX_SIZE, file);
 		g->n = atoi(strtok(buffer," "));
 
-		while (fgets(buffer, MAX_SIZE, file) != NULL && !reached_EOF(buffer))
+		while (fgets(buffer, MAX_SIZE, file) != NULL && !reached_EOF(buffer, sizeof(buffer)/sizeof(buffer[0])))
 		{
 			charx = strtok(buffer, " ");
 			chary = strtok(NULL, " ");

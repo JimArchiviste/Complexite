@@ -1,29 +1,5 @@
 #include "tools.h"
 
-/**
- * \brief Calculates the length of an array
- * \param tab An array of any type
- * \return The length of the array
- * \author Alexandre Leonardi 	
- */
-int get_size_int(int* tab)
-{
-	if(tab == NULL)
-	{
-		return 0;
-	}
-	return(sizeof(tab)/sizeof(int));
-}
-
-int get_size_char(char* tab)
-{
-	if(tab == NULL)
-	{
-		return 0;
-	}
-	return(sizeof(tab)/sizeof(char));
-}
-
 
 void draw_graph(graph g)
 {
@@ -46,23 +22,21 @@ void memorize(int* desert, int** res)
 
 }
 
-void copy(int* src, int* dest)
+void copy(int* src, size_t size_src, int* dest, size_t size_dest)
 {
-	int n = get_size_int(src);
 	int i;
-	if(sizeof(src) != sizeof(dest))
+	if(size_src != size_dest)
 	{
 		printf("[tools/copy] ERROR : you can't an array into another  if they are not of the same length !");
 	}
-	for(i=0 ; i<n ; i++)
+	for(i=0 ; i<size_src ; i++)
 	{
 		dest[i] = src[i];
 	}
 }
 
-int reached_EOF(char* string)
+int reached_EOF(char* string, size_t n)
 {
-	int n = get_size_char(string);
 	int i;
 	int eof = 0;
 	while(i<n && !eof)
