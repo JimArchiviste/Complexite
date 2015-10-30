@@ -1,26 +1,20 @@
 #include "extract.h"
 
 
-int* extract_maximal(graph g)
+void extract_maximal(graph g, subgraph gmax)
 {
-	int* gmax;
-	gmax = (int*)malloc(sizeof(int)*g.n);
-	
 	int i;
 	for(i=0 ; i<g.n ; i++)
 		gmax[i] = 0;
 	
 	exMaximal_rec(0, gmax, &g);
-	return gmax;
 }
 
-void exMaximal_rec(int i, int* gmax, graph* g)
+void exMaximal_rec(int i, subgraph gmax, graph* g)
 {
-	size_t size = sizeof(gmax)/sizeof(gmax[0]);
-	printf("size gmax : %d\n",size);
-	if( ! is_maximal(gmax,  size, *g) && i!= g->n) //si le sous graphe n'est pas maximal
+	if( ! is_maximal(gmax, *g) && i!= g->n) //si le sous graphe n'est pas maximal
 	{
-		if( is_desert(gmax, size, *g) ) //si le sous graphe est bien un sous graphe desert
+		if( is_desert(gmax,  *g) ) //si le sous graphe est bien un sous graphe desert
 		{
 				gmax[i] = 1;
 				i++;

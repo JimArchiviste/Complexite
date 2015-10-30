@@ -10,7 +10,13 @@ int main (int argc, char *argv[])
 	graph g;
 	gen_graph("test", &g);
 	draw_graph(g);
-	int desert[] = {0,1};
-	printf("%d\n",is_desert(desert, 2, g));
+	subgraph desert;
+	int i;
+	for(i=0 ; i<NB_VERTICES ; i++){
+		desert[i] = 0;
+	}
+	desert[0] = 1;
+	//desert[2] = 1;
+	printf("%d\n",is_desert(desert, g));
 	return EXIT_SUCCESS;
 }

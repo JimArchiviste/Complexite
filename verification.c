@@ -8,17 +8,17 @@
  * \return 1 if desert is a desert subgraph of g, 0 otherwise
  * \author Guélaud Lepetit
  */
-int is_desert(int* desert, size_t size, graph g)
+int is_desert(subgraph desert, graph g)
 {
 	int res,i,j;
 	res = 1;
 	i = 0;
 	j = 1;
-	while(i<size && res)
+	while(i<g.n && res)
 	{
-		while(j<size && res)
+		while(j<g.n && res)
 		{
-			if(g.edges[desert[i]][desert[j]])
+			if(desert[i] && desert[j] && g.edges[i][j])
 			{
 				res = 0;
 			}
@@ -37,33 +37,21 @@ int is_desert(int* desert, size_t size, graph g)
  * \return 1 if desert is a desert subgraph of g, 0 otherwise
  * \author Guélaud Lepetit
  */
-int is_maximal(int* desert, size_t size, graph g)
+int is_maximal(subgraph desert, graph g)
 {
-	int res,ig,ix,size_desert;
+	int res,i;
 	res = 1;
-	ig = 0;
-	ix = 0;
-	while(res && ig < g.n)
+	i = 0;
+	if(!is_desert(desert,g)) res=0;
+	while(res && i<g.n)
 	{
-		if(desert[ix] == ig)
+		if(!desert[i])
 		{
-			ig++;
+			desert[i] = 1;
+			res = !is_desert(desert,g);
+			desert[i] = 0;
 		}
-		int tmp = 1;
-		while(tmp && ix < size)
-		{
-			if(g.edges[ig][desert[ix]] == 1)
-			{
-				tmp = 0;
-			}
-			ix++;
-		}
-		if(tmp == 0)
-		{
-			res = 0;
-		}
-		ix = 0;
-		ig++;
+		i++;
 	}
 	return res;
 }
