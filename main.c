@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "generate_graph.h"
 #include "types.h"
-#include "extract.h"
+#include "maximal.h"
 #include "verification.h"
 
 int main (int argc, char *argv[])
@@ -18,5 +18,9 @@ int main (int argc, char *argv[])
 	desert[0] = 1;
 	//desert[2] = 1;
 	printf("%d\n",is_desert(desert, g));
+	printf("%d\n",is_maximal(desert,g));
+	draw_subgraph(desert,g.n);
+	maximal(g,desert);
+	draw_subgraph(desert,g.n);
 	return EXIT_SUCCESS;
 }

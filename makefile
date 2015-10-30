@@ -1,4 +1,4 @@
-programme : main.o tools.o verification.o extract.o generate_graph.o
+programme : main.o tools.o verification.o maximal.o generate_graph.o
 	gcc $^ -o $@
 
 main.o : main.c
@@ -10,7 +10,7 @@ tools.o : tools.c tools.h
 verification.o : verification.c verification.h
 	gcc -c $< -o $@
 
-extract.o : extract.c extract.h
+maximal.o : maximal.c maximal.h
 	gcc -c $< -o $@
 
 generate_graph.o : generate_graph.c generate_graph.h

@@ -14,6 +14,16 @@ void draw_graph(graph g)
 	}
 }
 
+void draw_subgraph(subgraph s, int n)
+{
+	int i;
+	if(n>0)
+	{
+		printf("[%d",s[0]);
+		for(i=1 ; i<n ; i++) printf(";%d",s[i]);
+	}
+	printf("]\n");
+}
 
 void memorize(int* desert, int** res)
 {
