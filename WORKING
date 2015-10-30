@@ -1,0 +1,5 @@
+gen_graph
+draw_graph
+reached_EOF
+is_desert
+is_maximal
