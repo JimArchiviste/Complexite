@@ -12,9 +12,11 @@ int main (int argc, char *argv[])
 	draw_graph(g);
 	subgraph desert;
 	int i;
-	for(i=0 ; i<NB_VERTICES ; i++) desert[i] = 0;
+	for(i=0 ; i<NB_VERTICES ; i++){
+		desert[i] = 0;
+	}
 	desert[0] = 1;
-	desert[3] = 1;
+	//desert[2] = 1;
 	printf("%d\n",is_desert(desert, g));
 	return EXIT_SUCCESS;
 }

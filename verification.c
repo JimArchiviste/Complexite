@@ -14,9 +14,9 @@ int is_desert(subgraph desert, graph g)
 	res = 1;
 	i = 0;
 	j = 1;
-	while(i<NB_VERTICES && res)
+	while(i<g.n && res)
 	{
-		while(j<NB_VERTICES && res)
+		while(j<g.n && res)
 		{
 			if(desert[i] && desert[j] && g.edges[i][j])
 			{
@@ -42,12 +42,13 @@ int is_maximal(subgraph desert, graph g)
 	int res,i;
 	res = 1;
 	i = 0;
+	if(!is_desert(desert,g)) res=0;
 	while(res && i<g.n)
 	{
-		if(desert[i] == 0)
+		if(!desert[i])
 		{
 			desert[i] = 1;
-			res = is_desert(desert,g);
+			res = !is_desert(desert,g);
 			desert[i] = 0;
 		}
 		i++;
