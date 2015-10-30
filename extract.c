@@ -16,9 +16,11 @@ int* extract_maximal(graph g)
 
 void exMaximal_rec(int i, int* gmax, graph* g)
 {
-	if( ! is_maximal(gmax, *g) && i!= g->n) //si le sous graphe n'est pas maximal
+	size_t size = sizeof(gmax)/sizeof(gmax[0]);
+	printf("size gmax : %d\n",size);
+	if( ! is_maximal(gmax,  size, *g) && i!= g->n) //si le sous graphe n'est pas maximal
 	{
-		if( is_desert(gmax, *g) ) //si le sous graphe est bien un sous graphe desert
+		if( is_desert(gmax, size, *g) ) //si le sous graphe est bien un sous graphe desert
 		{
 				gmax[i] = 1;
 				i++;
