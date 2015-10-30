@@ -14,10 +14,20 @@ int is_desert(int* desert, size_t size, graph g)
 	res = 1;
 	i = 0;
 	j = 1;
+	if(size > g.n)
+	{
+		printf("[verification/is_desert] ERROR : the subgraph is greater than the graph !\n");
+		res = 0;
+	}
 	while(i<size && res)
 	{
 		while(j<size && res)
 		{
+			if(desert[i] >= size || desert[j] >= size)
+			{
+				printf("[verification/is_desert] ERROR : one of the vertices of the subgraph is not part of the graph itself !\n");
+				res = 0;
+			}
 			if(g.edges[desert[i]][desert[j]])
 			{
 				res = 0;
