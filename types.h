@@ -11,29 +11,6 @@ typedef struct
 	int edges[NB_VERTICES][NB_VERTICES];
 } graph;
 
-typedef struct LINK
-{
-	vertex v;
-	struct link* next;
-} link;
-
-typedef link* vertices_set;
-
-// List version of the graph representation
-/*
-typedef struct link
-{
-	vertex v;
-	struct link* next;
-}
-
-typedef struct link* list;
-
-typedef struct 
-{
-	int n;										//effective number of vertices of the graph
-	list edges[NB_VERTICES];
-} graph_l;
-*/
+typedef int subgraph[NB_VERTICES];
 
 #endif
