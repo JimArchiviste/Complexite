@@ -1,5 +1,4 @@
 vérification des fonctions de tools.c 
-faire generate-maximal
 faire generate-maximum
 mettre à jour les commentaires car beaucoup de fonctions ont changé
 faire en sorte que les structures soient passés en paramètre par adresse plutôt que par copie pour éviter le seg fault si elles sont grosses 
