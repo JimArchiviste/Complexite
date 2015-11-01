@@ -6,7 +6,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void desert_maximum_exact(graph g, int** res_set);
-void desert_maximum_exact_rec(graph g, subgraph desert, int** res, int rank);
+void maximum_exact(graph g, subgraph max);
+void maximum_exact_rec(graph g, subgraph desert, subgraph_list res_list, int rank);
+void extract_maximum(subgraph_list list, subgraph max);
 
 #endif

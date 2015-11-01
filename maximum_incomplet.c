@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "maximum_incomplet.h"
 
 
 //Cette fonction retourne l'indice de l'element avec le plus d'arcs.

@@ -7,7 +7,9 @@
 
 void draw_graph(graph g);
 void draw_subgraph(subgraph s, int n);
-void memorize(int* desert, int** res);
-void copy(int* src, size_t size_src, int* dest, size_t size_dest);
+subgraph_list memorize(subgraph s, subgraph_list l);
+void copy(subgraph src, subgraph dest);
 int reached_EOF(char* string, size_t n);
+int is_empty(subgraph s);
+int length(subgraph s);
 #endif

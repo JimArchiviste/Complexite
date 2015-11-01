@@ -1,4 +1,4 @@
-programme : main.o tools.o verification.o maximal.o generate_graph.o
+programme : main.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o
 	gcc $^ -o $@
 
 main.o : main.c
@@ -15,6 +15,12 @@ maximal.o : maximal.c maximal.h
 
 generate_graph.o : generate_graph.c generate_graph.h
 	gcc -c $< -o $@
+	
+maximum_exact.o : maximum_exact.c maximum_exact.h
+	gcc -c $< -o $@
+
+#maximum_incomplet.o : maximum_incomplet.c maximum_incomplet.h
+#	gcc -c $< -o $@
 
 clean :
 	rm -rf *.o

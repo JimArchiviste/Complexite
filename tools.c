@@ -24,21 +24,18 @@ void draw_subgraph(subgraph s, int n)
 	printf("]\n");
 }
 
-void memorize(int* desert, int** res)
+subgraph_list memorize(subgraph s, subgraph_list l)
 {
-	
-	res = (int**)realloc(res, sizeof(desert) + sizeof(res));
-
+	element *tmp = (element*)malloc(sizeof(element));
+	copy(s,tmp->s);
+	tmp->next = l;
+	return tmp;	
 }
 
-void copy(int* src, size_t size_src, int* dest, size_t size_dest)
+void copy(subgraph src, subgraph dest)
 {
 	int i;
-	if(size_src != size_dest)
-	{
-		printf("[tools/copy] ERROR : you can't an array into another  if they are not of the same length !");
-	}
-	for(i=0 ; i<size_src ; i++)
+	for(i=0 ; i<NB_VERTICES ; i++)
 	{
 		dest[i] = src[i];
 	}
@@ -54,4 +51,28 @@ int reached_EOF(char* string, size_t n)
 		i++;
 	}
 	return eof;
+}
+
+int is_empty(subgraph s)
+{
+	int i,empty;
+	empty = 1;
+	i=0;
+	while(i<NB_VERTICES && empty)
+	{
+		if(s[i]) empty = 0;
+		i++;
+	}
+	return empty;
+}
+
+int length(subgraph s)
+{
+	int l,i;
+	l=0;
+	for(i=0;i<NB_VERTICES;i++)
+	{
+		if(s[i]) l++;
+	}
+	return l;
 }
