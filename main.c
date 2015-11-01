@@ -5,6 +5,7 @@
 #include "maximal.h"
 #include "maximum_exact.h"
 #include "verification.h"
+#include "maximum_partial.h"
 
 int main (int argc, char *argv[])
 {
