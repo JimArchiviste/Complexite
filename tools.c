@@ -1,6 +1,5 @@
 #include "tools.h"
 
-
 void draw_graph(graph g)
 {
 	int i, j;
