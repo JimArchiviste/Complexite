@@ -24,11 +24,11 @@ void draw_subgraph(subgraph s, int n)
 	printf("]\n");
 }
 
-subgraph_list memorize(subgraph s, subgraph_list l)
+subgraph_list memorize(subgraph s, subgraph_list *l)
 {
 	element *tmp = (element*)malloc(sizeof(element));
 	copy(s,tmp->s);
-	tmp->next = l;
+	tmp->next = *l;
 	return tmp;	
 }
 

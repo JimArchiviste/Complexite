@@ -6,12 +6,12 @@ void maximum_exact(graph g, subgraph max)
 	subgraph_list res_list = NULL;
 	int i;
 	for(i=0 ; i<NB_VERTICES ; i++) tmp[i]=0;
-	maximum_exact_rec(g, tmp, res_list, 0);
+	maximum_exact_rec(g, tmp, &res_list, 0);
 	
 	extract_maximum(res_list, max);
 }
 
-void maximum_exact_rec(graph g, subgraph desert, subgraph_list res_list, int depth)
+void maximum_exact_rec(graph g, subgraph desert, subgraph_list *res_list, int depth)
 {
 	//bool qu'on passe à faux si on a trouvé un maximal => pas la peine d'aller plus loin
 	int go_on = 1;
@@ -25,9 +25,7 @@ void maximum_exact_rec(graph g, subgraph desert, subgraph_list res_list, int dep
 		{
 			if(is_maximal(desert, g))
 			{
-				if(res_list != NULL)printf("un\n");
-				res_list = memorize(desert, res_list);
-				if(res_list != NULL)printf("deux\n");
+				*res_list = memorize(desert, res_list);
 				go_on = 0;
 			}
 		}
