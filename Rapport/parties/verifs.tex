@@ -1,0 +1,53 @@
+\section{Alogirthmes de vérification}
+
+Cette partie regroupe les deux algorithmes de vérification prenant en paramètre un graphe et un sous-graphe, et vérifiant si le sous-graphe est, respectivement, désert et maximal. 
+
+Étant très similaires de fonctionnement, nous avons regroupé ces deux algorithmes dans la même partie. À noter qu'ils ne vérifient pas si le sous-graphe est bien un sous-graphe du graphe passé en paramètre : on suppose que les paramètres passés sont corrects.
+
+\subsection{Propriété \og désert \fg}
+
+\subsubsection{Principe}
+
+\begin{verbatim}
+booléen is_desert(graphe g, sous-graphe s){
+    booléen desert = vrai
+    int n = taille de g
+    matrice arc = ensemble des arcs de g
+    pour i de 0 à n
+        pour j de i+1 à n
+            si (s[i]==1 et s[j]==1 et arc[i][j]==1) alors 
+                desert = faux
+                sortir des boucles
+            fsi
+        fpour
+    fpour
+    retourner desert
+}
+\end{verbatim}
+Le principe de cet algorithme est de parcourir l'ensemble des arcs possibles à l'aide d'une double boucle et de vérifier, pour chaque arc :
+\begin{enumerate}
+	\item si ses deux extrémités sont présentes dans le sous-graphe
+	\item s'il est présent dans le graphe
+\end{enumerate}
+Si tel est  le cas, cela veut dire que le sous-graphe n'est pas désert (deux de ses sommets sont reliés entre eux), on sort donc des boucles et on retourne faux.
+
+Si rien ne nous arrête, alors on retourne vrai. En pratique pour éviter l'usage d'un \verb|break|, les boucles sont des \verb|while| qui vérifient à chaque itération la valeur du booléen.
+
+\subsubsection{Validité}
+
+La rigueur d'une preuve formelle n'est pas requise pour ce projet, or si l'on ne va  pas jusque là, il n'y a que peu à rajouter : l'algorithme applique exhaustivement la définition d'un sous-graphe désert. 
+
+Tous les arcs  possibles sont dûment vérifiées compte tenu de cette définition (deux sommets d'un sous-graphe désert ne peuvent pas être reliés par un arc du graphe) ; le seul cas non-traité possible est celui où le sous-graphe comporte des sommets qui ne feraient pas partie du graphe de départ, car 
+
+\subsubsection{Complexité}
+
+    expliquer l'algorithme en français,
+    l'écrire en pseudo-code,
+    justifier sa validité (il n'est pas nécessaire de faire des preuves par invariant ou par induction),
+    donner et justifier sa complexité.
+
+    le temps de calcul (pensez à préciser la configuration de l'ordinateur utilisé pour les tests),
+    toutes données pertinentes comme, par exemple, la réponse oui/non au problème de décision considéré ou la taille de la clique maximale/maximum trouvée.
+
+
+\subsection{Propriété \og maximal \fg}

@@ -1,0 +1,19 @@
+\section{Types de donnée utilisés}
+
+Les types présentés ci-après sont trouvables dans le fichier \verb|types.h|.
+
+\subsection{Représentation des graphes}
+
+Les graphes sont représentés à l'aide de la méthode des matrices d'adjacence. Ce choix a été fait pour des raisons de simplicité de la représentation principalement. 
+
+En effet, même si elle s’avère  plus consommatrice en mémoire qu'une représentation par liste  chaînée, le gain en temps de codage n'est pas négligeable. Dans la mesure où l'ordinateur de test disposait d'une grande quantité de mémoire vive, ce défaut ne nous a pas paru rédhibitoire. 
+
+L'autre raison est la vérification en temps constant de l'existence d'un arc qui est utilisée à de nombreuses reprises dans le code. 
+
+\subsection{Représentation des sous-graphes}
+
+Les sous-graphes sont représentés comme des tableaux de booléens dont la case d'indice $i$ vaut 1 si le sommet $i$ appartient au graphe. 
+
+Un alias nous permet de faciliter la représentation en donnant un nom explicite à ces tableaux et en fixant leur taille maximum comme étant le nombre de sommets que peut comporter un graphe au maximum. 
+
+Cette représentation a également l'inconvénient de la perte de mémoire, mais encore une fois la quantité de RAM disponible nous a mené à penser que ce ne serait pas un problème. 

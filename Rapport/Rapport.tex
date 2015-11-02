@@ -1,0 +1,64 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{exptech}
+
+\hypersetup{
+  pdftitle={VirtualJakopter - Documentation technique}, % title
+  pdfnewwindow=true, % links in new window
+  colorlinks=true, % false: boxed links; true: colored links
+  linkcolor=black, % color of internal links (change box color with linkbordercolor)
+  citecolor=cyan, % color of links to bibliography
+  filecolor=cyan, % color of file links
+  urlcolor=cyan % color of external links
+}
+
+\markright{Doc VirtualJakopter}
+\title{
+	\textbf{Complexité I}\\
+	Rapport de projet
+}
+
+\author{
+	\begin{minipage}{0.75\textwidth}
+		Alexandre \textsc{Léonardi}
+		Ghislain \textsc{Dugat}
+		Guélaud \textsc{Lepetit}
+		Abdelkader \textsc{Benameur}
+		Loïc \textsc{Vierin}
+		Amine \textsc{Zayd}
+	\end{minipage}
+}
+\date{2 novembre 2015}
+
+\begin{document}
+	\maketitle
+	\begin{abstract}
+		Rapport du projet de Complexité de Master 1. Ce rapport comporte une analyse des algorithmes utilisés pour résoudre les problèmes suivants :
+		\begin{itemize}[label=$\bullet$]
+			\item Vérification de la propriété \og désert \fg{} d'un sous-graphe
+			\item Vérification de la propriété \og désert maximal \fg{} d'un sous-graphe
+			\item Calcul d'un sous-graphe désert maximal quelconque à partir d'un graphe donné
+			\item Calcul d'un sous-graphe désert maximum quelconque à partir d'un graphe donné
+			\item Calcul d'un sous-graphe désert "`presque maximum"' à l'aide d'une heuristique laissée à notre discrétion
+		\end{itemize}
+	\end{abstract}
+	Chacun des algorithmes sera brièvement expliqué et accompagné de sa complexité et de son temps d'exécution. 
+	
+	Par ailleurs le tableau récapitulant la participation des différents membres du groupe, ainsi que la configuration de l'ordinateur utilisé pour mener les tests et enregistrer les temps d'exécution, seront présentés dans une première partie. 
+	\vfill
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\input{parties/participation.tex}
+\pagebreak
+\input{parties/types.tex}
+\pagebreak
+\input{parties/verifs.tex}
+\pagebreak
+\input{parties/maximal.tex}
+\pagebreak
+\input{parties/maximum.tex}
+\pagebreak
+
+\end{document}
