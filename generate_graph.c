@@ -2,7 +2,13 @@
 
 #define MAX_SIZE 128
 
-graph* gen_graph(char* path, graph *g)
+/**
+ * \brief Reads and parses a file to extract a graph from it, if possible
+ * \param path The path to the file
+ * \param g The graph to fill according to the file
+ * \author Ghislain Dugat
+ */
+void gen_graph(char* path, graph *g)
 {
 	char *buffer, *charx, *chary;
 	int i,j,x,y;
@@ -49,5 +55,4 @@ graph* gen_graph(char* path, graph *g)
 	free(buffer);
 	}
 
-	return g;
 }

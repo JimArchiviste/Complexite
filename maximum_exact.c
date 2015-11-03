@@ -1,5 +1,12 @@
 #include "maximum_exact.h"
 
+/**
+ * \brief Generates a desert maximum subgraph of a given graph
+ * \param g The source graph
+ * \param gmax The initialy empty subgraph to turn into a desert maximum subgraph
+ * \author Alexandre Léonardi
+ */
+ //Complexity : theta(2^n)
 void maximum_exact(graph g, subgraph max)
 {
 	subgraph tmp;
@@ -11,16 +18,20 @@ void maximum_exact(graph g, subgraph max)
 	extract_maximum(res_list, max);
 }
 
+/**
+ * \brief Recursive function that generates all the subgraphs of a given graph and, if they are desert maximal, stores them in a list
+ * \param g The source graph
+ * \param desert A base subgraph that must be part of every other subgraph generated
+ * \param *res_list the subgraphs list used to store them if they are desert maximal
+ * \param depth The depth of the current recursive call, used as a stop condition and in order to know what subgraphs generate
+ * \author Alexandre Léonardi
+ */
 void maximum_exact_rec(graph g, subgraph desert, subgraph_list *res_list, int depth)
 {
-	//bool qu'on passe à faux si on a trouvé un maximal => pas la peine d'aller plus loin
 	int go_on = 1;
 		
-	//si on est pas dans le premier appel récursif => desert non vide
 	if(!is_empty(desert))
 	{
-		//on regarde s'il est desert maximal
-		//et si oui on ne continue pas plus loin les appels récursifs, mais on stocke desert dans res
 		if(is_desert(desert, g))
 		{
 			if(is_maximal(desert, g))
@@ -34,10 +45,8 @@ void maximum_exact_rec(graph g, subgraph desert, subgraph_list *res_list, int de
 			go_on = 0;
 		}
 	}
-	//si on était pas dnas le cas d'un désert maximal mais qu'on a quand même un graphe désert
 	if(go_on)
 	{
-		//rank est la profondeur d'appel récursif (changer de nom ?) => si on a une profondeur > g.n c'est terminé !
 		if(depth < g.n)
 		{
 			subgraph desert1, desert2;
@@ -52,6 +61,12 @@ void maximum_exact_rec(graph g, subgraph desert, subgraph_list *res_list, int de
 	}
 }
 
+/**
+ * \brief Searchs a maximum subgraph amng a list of maximals subgraphs
+ * \param list The subgraphs list to search 
+ * \param max The initialy empty subgraph bound to countain the maximum subgraph
+ * \author Alexandre Léonardi
+ */
 void extract_maximum(subgraph_list list, subgraph max)
 {
 	int size,longest;

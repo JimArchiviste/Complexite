@@ -1,6 +1,12 @@
 #include "maximum_partial.h"
 
-
+/**
+ * \brief Searches the vertex with the less edges in a given graph
+ * \param g The source graph
+ * \param forbidden A set of vertices to ignore during the search
+ * \author Abdelkader Benameur
+ * \return The index of the found vertex
+ */
 int vertex_with_less_edges(graph g, subgraph forbidden)
 {
 	int nbEdges;
@@ -27,6 +33,13 @@ int vertex_with_less_edges(graph g, subgraph forbidden)
 	return index;
 }
 
+/**
+ * \brief Using an heuristic, generates a subgraph as close to maximum as  possible
+ * \param g The source graph
+ * \param max The initialy empty subgraph to turn into a desert maximum subgraph
+ * \author Abdelkader Benameur
+ */
+ //Complexity : theta()
 void maximum_partial(graph g, subgraph max)
 {
 	int index,i;
