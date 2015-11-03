@@ -12,4 +12,5 @@ void copy(subgraph src, subgraph dest);
 int reached_EOF(char* string, size_t n);
 int is_empty(subgraph s);
 int length(subgraph s);
+void enter_subgraph(subgraph s,int size_graph);
 #endif

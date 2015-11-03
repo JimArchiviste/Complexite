@@ -76,3 +76,13 @@ int length(subgraph s)
 	}
 	return l;
 }
+
+void enter_subgraph(subgraph s, int size_graph)
+{
+	int i;
+	for(i=0 ; i<size_graph ; i++)
+	{
+		printf("Voulez-vous que ls sommet %d soit dans le sous-graphe ? (entrez 1 ou 0) : ",i);
+		scanf("%d",&s[i]);	
+	}
+}

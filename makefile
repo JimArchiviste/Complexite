@@ -1,7 +1,31 @@
-programme : main.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o maximum_partial.o
+is_desert : main_is_desert.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o maximum_partial.o
 	gcc $^ -o $@
+	
+is_maximal : main_is_maximal.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o maximum_partial.o
+	gcc $^ -o $@
+	
+gen_maximal : main_maximal.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o maximum_partial.o
+	gcc $^ -o $@
+	
+gen_maximum_ex : main_maximum_exact.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o maximum_partial.o
+	gcc $^ -o $@
+	
+gen_maximum_part : main_maximum_partial.o tools.o verification.o maximal.o generate_graph.o maximum_exact.o maximum_partial.o
+	gcc $^ -o $@
+	
+main_is_desert.o : main_is_desert.c
+	gcc -c $< -o $@
+	
+main_is_maximal.o : main_is_maximal.c
+	gcc -c $< -o $@
 
-main.o : main.c
+main_maximal.o : main_maximal.c
+	gcc -c $< -o $@
+	
+main_maximum_exact.o : main_maximum_exact.c
+	gcc -c $< -o $@
+	
+main_maximum_partial.o : main_maximum_partial.c
 	gcc -c $< -o $@
 
 tools.o : tools.c tools.h
@@ -24,7 +48,10 @@ maximum_partial.o : maximum_partial.c maximum_partial.h
 
 clean :
 	rm -rf *.o
-	rm -rf programme
+	rm -rf gen*
+	rm -rf is_desert
+	rm -rf is_maximal
+	rm -rf maximal
 
 mrproper: clean
 	rm -rf *.txt

@@ -1,0 +1,25 @@
+Procédure à suivre :
+
+1) cloner le dépôt git dont voici l'adresse :
+https://github.com/JimArchiviste/Complexite.git
+
+2) Dans le dossier Benchs vous trouverez l'ensemble des graphs de test proposés sur votre site internet.
+Ils sont utilisables mais nos algorithmes étant peu utilisés, leur taille risque de rapidement poser problème. 
+
+IMPORTANT : ils requièrent le changement de la macro NB_VERTICES dans "types.h" pour correspondre au nombre de sommets du graphe (nous l'avons fixée à 10 pour nos tests)
+
+3) Un makefile est fourni, qui peut produire plusieurs exécutables ; voici la liste des commandes reconnues :
+make is_desert (ou make tout court) 
+make is_maximal
+make gen_maximal
+make gen_maximum_ex
+make gen_maximum_part
+Chacune de ces commandes crée un exécutable (make is_desert crée un exécutable nommé is_desert, etc).
+make clean est par ailleurs disponible.
+
+4) Une fois un ou plusieurs exécutables créés, le lancement se fait avec une commande de la forme :
+./chemin_exécutable chemin_graphe
+Par exemple si vous vous trouvez à la racine du projet un appel possible est :
+./is_desert Benchs/anna
+Si vous ne renseignez pas le chemin vers un fichier représentant un graphe, un message d'erreur est affiché et le main ne fait aucun traitement.
+
