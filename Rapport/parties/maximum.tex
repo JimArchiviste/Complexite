@@ -42,9 +42,9 @@ void maximum_exact_rec(graphe G, sous-graphe S, ensemble-de-sous-graphes ens, en
 
 Voici une bréve explication des fonctions de plus bas niveau qui sont appelées par celles détaillées ici : 
 \begin{itemize}
-	\item{extract\_maximum} prend en paramètre une liste chainée de sous-graphes et un sous-graphe vide ; elle copie un des sous-graphes de taille maximum de l'ensemble dans le sous-graphe vide
-	\item{memorize} enregistre un sous-graphe donné dans une liste chainée de sous-graphes en créant un nouveau maillon et l'y copiant
-	\item{copy} copie, comme son nom l'indique, un sous-graphe source dans un sous-graphe destination, écrasant tout ce qui se trouvait dans ce dernier auparavant
+	\item{\verb|extract_maximum|} prend en paramètre une liste chainée de sous-graphes et un sous-graphe vide ; elle copie un des sous-graphes de taille maximum de l'ensemble dans le sous-graphe vide
+	\item{\verb|memorize|} enregistre un sous-graphe donné dans une liste chainée de sous-graphes en créant un nouveau maillon et l'y copiant
+	\item{\verb|copy|} copie, comme son nom l'indique, un sous-graphe source dans un sous-graphe destination, écrasant tout ce qui se trouvait dans ce dernier auparavant
 \end{itemize}
 Le principe de la partie récursive de l'algorithme est de vérifier dans un premier temps si on est dans un cas terminal, c'est-à-dire si le sous-graphe passé en paramètre est désert maximal. Si c'est le cas, on le stocke dans notre liste de sous-graphes et il n'y a pas d'appel récursif.
 
@@ -52,29 +52,29 @@ Si ce n'est pas le cas (mais si le sous-graphe est tout de même désert, sinon 
 
 Puis deux appels récursifs sont faits, avec une profondeur incrémentée et chacun des deux sous-graphes mentionnés précédemment. Incidemment, nous allons créer tous les sous-graphes possibles de G et tester chacun d'entre eux pour mettre de côté tous les maximaux.
 
-Une fois ces appels récursifs terminés, c'est la fonction extract\_maximum qui parcourt tous les résultats obtenus et en extrait un de taille la plus grande. 
+Une fois ces appels récursifs terminés, c'est la fonction \verb|extract_maximum| qui parcourt tous les résultats obtenus et en extrait un de taille la plus grande. 
 
 \subsubsection{Validité}
 
-Tout d'abord, notre fonction récursive atteindra toujours sonc cas terminal. La mécanique est la même que pour la fonction de génération d'un sous-graphe maximal : nous rajoutons des sommets au sous-graphe, si bien que l'on arrive nécessairement dans un des deux cas terminaux  possibles (soit le sous-graphe cesse d'être désert, soit il devient désert maximal). 
+Tout d'abord, notre fonction récursive atteindra toujours son cas terminal. La mécanique est la même que pour la fonction de génération d'un sous-graphe maximal : nous rajoutons des sommets au sous-graphe, si bien que l'on arrive nécessairement dans un des deux cas terminaux  possibles (soit le sous-graphe cesse d'être désert, soit il devient désert maximal). 
 
-La principale différnce vient du fait que nous testons exhaustivement les sous-graphes possibles plutôt que de suivre un seul chemin  pseudo-aléatoire. 
+La principale différence vient du fait que nous testons exhaustivement les sous-graphes possibles plutôt que de suivre un seul chemin  pseudo-aléatoire. 
 
-Le bon fonctionnement de la fonction maximum\_exact découle de la supposée validité des fonctions is\_maximal et is\_desert ; en effet, ce sont celles-ci qui permettent de stopper la récursion et de reconnaître les sous-graphes à mémoriser. 
+Le bon fonctionnement de la fonction \verb|maximum_exact| découle de la supposée validité des fonctions \verb|is_maximal| et \verb|is_desert| ; en effet, ce sont celles-ci qui permettent de stopper la récursion et de reconnaître les sous-graphes à mémoriser. 
 
 \subsubsection{Complexité}
 
 La complexité de cette fonction est plus longue à calculer que les précédentes. Chaque appel récursif en engendrant 2 nouveaux jusqu'à une profondeur maximum de n, où n est la taille de G, nous avons au final $2^n$ appels récursifs. 
 
-n d'entre eux sont des cas terminaux donc la complexité est de l'ordre de celle de la fonction memorize (à savoir $\theta(NMAX)$ où NMAX est le nombre maximum de sommets d'un graphe).
+n d'entre eux sont des cas terminaux donc la complexité est de l'ordre de celle de la fonction \verb|memorize| (à savoir $\theta(NMAX)$ où NMAX est le nombre maximum de sommets d'un graphe).
 
-$2^n-n$ sont des cas non terminaux d'une complexité de l'ordre de celle de copy (à savoir $\theta(NMAX)$).
+$2^n-n$ sont des cas non terminaux d'une complexité de l'ordre de celle de \verb|copy| (à savoir $\theta(NMAX)$).
 
 Ainsi l'ensemble de l'arbre d'appels récursifs est d'une complexité globale de l'ordre de $\theta(2^n \times NMAX)$. 
 
-Outre  ces appels récursifs, la fonction maximum\_exact fait appel à extract\_maximum qui appelle autant de fois copy qu'il y a de sous-graphes maximaux dans G, mais je n'ai pas su calculer la complexité de cette fonction.
+Outre  ces appels récursifs, la fonction \verb|maximum_exact| fait appel à \verb|extract_maximum| qui appelle autant de fois \verb|copy| qu'il y a de sous-graphes maximaux dans G, mais je n'ai pas su calculer la complexité de cette fonction.
 
-Pour conclure, je pense donc que la fonction maximum\_exact est d'une complexité exponentielle par rapport à la taille du graphe G en entrée, mais sans en être sûr :
+Pour conclure, je pense donc que la fonction \verb|maximum_exact| est d'une complexité exponentielle par rapport à la taille du graphe G en entrée, mais sans en être sûr :
 
 $\theta(2^n)$
 
@@ -85,14 +85,41 @@ $\theta(2^n)$
 \subsubsection{Principe}
 
 \begin{verbatim}
-
+void maximum_partial(graph G, sous-graphe S){
+    entier index
+    sous-graphe sommets_intedits
+    tant que(!is_maximal(G,S))
+        index = vertex_with_less_edges(G,sommets_interdits)
+        sommets_interdits[index] = 1
+        S[index] = 1
+        si(!is_desert(G,S)) S[index] = 0
+    ftantque
+}
 \end{verbatim}
+\verb|vertex_with_less_edges| est une fonction qui, pour un graphe G et un sous-graphe de sommets à ne pas prendre en compte I, va retourner l'indice du sommet de G privé de I ayant le plus petit nombre d'arcs incidents. 
 
+L'idée est que, pour avoir de bonnes chances de générer un sous-graphe maximum, nous allons regarder le sommet avec le moins d'arcs incidents et l'ajouter à notre sous-graphe. 
+
+Si le sous-graphe est toujours désert, nous poursuivons les tours de boucle jusqu'à ce qu'il soit maximal,  mais il faut non seulement rajouter ce sommet à l'ensemble des sommets à ne plus traiter, mais aussi tous ses sommets voisins. 
+
+Si le sous-graphe n'est plus désert, le sommet en est retiré pour revenir à un sous-graphe désert, mais il est quand même rajouté à la liste des sommets interdits pour ne pas être traité une seconde fois par la suite (sans quoi l'algorithme tournerait en boucle à traiter encore et encore le même sommet). 
+
+Quand on a atteint un sous-graphe désert maximal comportant les sommets avec le moins d'arcs incidents possibles, on le retourne comme étant (probablement) maximum. 
 
 \subsubsection{Validité}
 
+En supposant la validité de \verb|vertex_with_less_edges|, au pire des cas tous les sommets de G seront traités et ajoutés à S, mais nous finirons nécessairement par avoir un sous-graphe désert maximal. 
+
+Or, ne cherchant pas l'exhaustivité ici, nous conservons le premier désert maximal rencontré comme résultat final. 
 
 \subsubsection{Complexité}
+
+Dans \verb|maximum_partial|, au maximum n tours de boucle sont effectués (dans le cas où tous les sommets doivent être parcourus pour obtenir un sous-graphe désert maximal). Chaque tour de boucle comporte 2 appels, \verb|vertex_with_less_edges| et \verb|is_desert|.
+
+On a déjà vu que la seconde fonction a une complexité en $\theta(n^2)$. Le première a également une complexité en $\theta(n^2)$ car elle comporte 2 boucles imbriquées (l'une étant de  la forme pour i de 0 à n, l'autre pour j de i+1 à n), et ces boucles effectuent un traitement en temps constant. 
+
+Notre fonction \verb|maximum_partial| a donc une complexité globale en :
+
 $\theta(n^3)$
 
 \emph{Temps d'exéc !!!} 

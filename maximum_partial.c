@@ -39,6 +39,7 @@ void maximum_partial(graph g, subgraph max)
 		index = vertex_with_less_edges(g,forbidden);
 		forbidden[index] = 1;
 		max[index] = 1;
+		//rajouter tous les successeurs de index à forbidden si c utile
 		if(!is_desert(max,g)) max[index] = 0;
 	}
 }
