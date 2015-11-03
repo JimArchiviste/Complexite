@@ -11,6 +11,7 @@
 int is_desert(subgraph desert, graph g)
 {
 	int res,i,j;
+	clock_t time = clock();
 	res = 1;
 	i = 0;
 	j = 1;
@@ -27,6 +28,8 @@ int is_desert(subgraph desert, graph g)
 		i++;
 		j = i+1;
 	}
+	time = clock()-time;
+	printf("[verification/is_desert] Execution time : %f\n",(double)time/CLOCKS_PER_SEC);
 	return res;
 }
 

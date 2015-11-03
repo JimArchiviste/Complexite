@@ -48,7 +48,9 @@ maximum_partial.o : maximum_partial.c maximum_partial.h
 
 clean :
 	rm -rf *.o
-	rm -rf gen*
+	rm -rf gen_maximal
+	rm -rf gen_maximum_ex
+	rm -rf gen_maximum_part
 	rm -rf is_desert
 	rm -rf is_maximal
 	rm -rf maximal

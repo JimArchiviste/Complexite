@@ -5,6 +5,7 @@ https://github.com/JimArchiviste/Complexite.git
 
 2) Dans le dossier Benchs vous trouverez l'ensemble des graphs de test proposés sur votre site internet.
 Ils sont utilisables mais nos algorithmes étant peu utilisés, leur taille risque de rapidement poser problème. 
+Autrement, le fichier "test" comporte un tout petit graphe de 4 sommets utilisé pour les tests unitaires de nos fonctions.
 
 IMPORTANT : ils requièrent le changement de la macro NB_VERTICES dans "types.h" pour correspondre au nombre de sommets du graphe (nous l'avons fixée à 10 pour nos tests)
 
@@ -23,3 +24,4 @@ Par exemple si vous vous trouvez à la racine du projet un appel possible est :
 ./is_desert Benchs/anna
 Si vous ne renseignez pas le chemin vers un fichier représentant un graphe, un message d'erreur est affiché et le main ne fait aucun traitement.
 
+5) Vous pourrez voir le temps d'exécution des fonctions s'afficher avant leur résulat. 
