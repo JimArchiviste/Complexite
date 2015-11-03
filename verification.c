@@ -29,7 +29,7 @@ int is_desert(subgraph desert, graph g)
 		j = i+1;
 	}
 	time = clock()-time;
-	printf("[verification/is_desert] Execution time : %f\n",(double)time/CLOCKS_PER_SEC);
+	printf("[verification/is_desert] Execution time : %fs\n",(double)time/CLOCKS_PER_SEC);
 	return res;
 }
 
@@ -43,6 +43,7 @@ int is_desert(subgraph desert, graph g)
 int is_maximal(subgraph desert, graph g)
 {
 	int res,i;
+	time_t time = clock();
 	res = 1;
 	i = 0;
 	if(!is_desert(desert,g)) res=0;
@@ -59,5 +60,7 @@ int is_maximal(subgraph desert, graph g)
 			i++;
 		}
 	}
+	time = clock()-time;
+	printf("[verification/is_maximal] Execution time : %fs\n",(double)time/CLOCKS_PER_SEC);
 	return res;
 }

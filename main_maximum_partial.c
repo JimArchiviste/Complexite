@@ -9,6 +9,7 @@
 int main (int argc, char *argv[])
 {
 	graph g;
+	int i;
 
 	if(argc < 2)
 	{
@@ -21,7 +22,8 @@ int main (int argc, char *argv[])
 		gen_graph(argv[1], &g);
 		draw_graph(g);
 		
-		subgraph desert;	
+		subgraph desert;
+		for(i=0 ; i<NB_VERTICES ; i++) desert[i]=0;
 		
 		maximum_partial(g,desert);
 		

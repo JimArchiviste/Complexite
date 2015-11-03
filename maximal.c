@@ -10,6 +10,7 @@
 void maximal(graph g, subgraph gmax)
 {
 	int i;
+	clock_t time = clock();
 	for(i= 0; i<g.n ; i++) gmax[i] = 0;
 	i=0;
 	
@@ -19,4 +20,6 @@ void maximal(graph g, subgraph gmax)
 		if(!is_desert(gmax,g)) gmax[i] = 0;
 		i++;
 	}
+	time = clock()-time;
+	printf("[maximal/maximal] Execution time : %fs\n",(double)time/CLOCKS_PER_SEC);
 }

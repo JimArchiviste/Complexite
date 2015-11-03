@@ -2,6 +2,7 @@
 #define MAXIMUM_INCOMPLET
 
 #include "types.h"
+#include "time.h"
 #include "tools.h"
 #include "verification.h"
 #include <stdio.h>

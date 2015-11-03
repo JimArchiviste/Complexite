@@ -2,6 +2,7 @@
 #define DESERT_MAXIMUM_EXACT
 
 #include "types.h"
+#include "time.h"
 #include "verification.h"
 #include <stdlib.h>
 #include <stdio.h>

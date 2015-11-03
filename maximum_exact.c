@@ -10,12 +10,15 @@
 void maximum_exact(graph g, subgraph max)
 {
 	subgraph tmp;
+	clock_t time = clock();
+	
 	subgraph_list res_list = NULL;
 	int i;
 	for(i=0 ; i<NB_VERTICES ; i++) tmp[i]=0;
 	maximum_exact_rec(g, tmp, &res_list, 0);
 	
 	extract_maximum(res_list, max);
+	printf("[maximum_exact/maximum_exact] Execution time : %fs\n",(double)time/CLOCKS_PER_SEC);
 }
 
 /**
