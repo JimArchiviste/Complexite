@@ -43,15 +43,18 @@ int is_maximal(subgraph desert, graph g)
 	res = 1;
 	i = 0;
 	if(!is_desert(desert,g)) res=0;
-	while(res && i<g.n)
+	else
 	{
-		if(!desert[i])
+		while(res && i<g.n)
 		{
-			desert[i] = 1;
-			res = !is_desert(desert,g);
-			desert[i] = 0;
+			if(!desert[i])
+			{
+				desert[i] = 1;
+				res = !is_desert(desert,g);
+				desert[i] = 0;
+			}
+			i++;
 		}
-		i++;
 	}
 	return res;
 }

@@ -1,0 +1,38 @@
+\section{Génération d'un sous-graphe maximal}
+
+Il s'agit de fournir un des sous-graphes maximaux  possibles pour un graphe donné, sans aucune préférence dans le cas où ils seraient multiples. 
+
+\subsection{Principe}
+
+\begin{verbatim}
+void maximal(graphe G, sous-graphe S){
+    entier n = taille de G
+    entier i = 0
+    tant que (i<n et non(is_maximal(G,S))
+        S[i] = 1
+        si(non(is_desert(G,S)) S[i] = 0
+        i++
+    ftq
+}
+\end{verbatim}
+L'idée ici est de traiter tous les sommets en partant de 0 et en allant jusqu'à n. Le sous-graphe est initialement vide et l'on y ajoute tous les sommets de G un à un, sous réserve qu'ils ne fassent pas disparaître la propriété \og désert \fg.
+
+Quand notre sous-graphe S est maximal, la fonction se termine.
+
+\subsection{Validité}
+
+Les cas où G comporte 0 ou 1 sommet sont triviaux : dans le premier cas la boucle n'est pas exécutée et nous obtenons un S vide, ce qui est bien un sous-graphe maximal d'un graphe vide. Dans le second cas la boucle est exécutée une fois et S sera composé de l'unique sommet de G ce qui encore une fois est un sous-graphe maximal valide. 
+
+Considérons donc le cas où n $\geq$ 1 et faisons une preuve par récurrence sur i :
+\begin{itemize}
+	\item{\emph{i=0}} S étant un singleton contenant le sommet d'indice 0 de G, il ne contient \textit{a priori} pas deux sommets reliés par un arc et est donc désert.
+	\item{\emph{i=k|k>0 et k<n}} On suppose qu'à l'itération k-1 S était bel et bien désert. S'il était en plus maximal, on le découvre à la condition d'entrée de la boucle, et celle-ci ne s'exécute pas (on quitte la fonction comme prévu). Si l'ajout $i^{eme}$ sommet de G à S rend ce dernier non-désert on le retire immédiatement après. Sinon, il est conservé. Dans tous les cas : nous avons vérifié si le sous-graphe de l'itération précédente était maximal, et si non, nous avons avancé dans le parcours des sommets tout en conservant un sous-graphe désert.
+	\item{\emph{conclusion}} Notre graphe de départ est bien désert, et cette propriété est conservée à chaque itération. G étant fini, on ne peut pas ajouter des sommets à l'infini dans un de ses sous-graphes, et la propriété \og désert \fg{} étant conservée de proche en proche, un sous-graphe désert maximal finit nécessairement par être atteint. 
+\end{itemize}
+
+\subsection{Complexité}
+
+Il y a au pire n tours de boucle, chaque tour de boucle comportant un appel à une fonction en $\theta{(n^2)}$ et une fonction en $\theta{(n^3)}$. On a donc une complexité globale en $\theta{(n(n^3))}$ soit :
+$\theta{(n^4)}$
+
+\emph{Temps d'exéc !!!} 

@@ -1,12 +1,29 @@
 \select@language {french}
 \contentsline {section}{\numberline {1}Participations au projet \& configuration de tests}{3}{section.1}
 \contentsline {section}{\numberline {2}Types de donn\IeC {\'e}e utilis\IeC {\'e}s}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Repr\IeC {\'e}sentation des graphes}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Repr\IeC {\'e}sentation des sous-graphes}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.1}Graphes}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Sous-graphes}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Ensembles de sous-graphes}{4}{subsection.2.3}
 \contentsline {section}{\numberline {3}Alogirthmes de v\IeC {\'e}rification}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}Propri\IeC {\'e}t\IeC {\'e} \FB@og d\IeC {\'e}sert \FB@fg }{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Principe}{5}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}Validit\IeC {\'e}}{5}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Complexit\IeC {\'e}}{5}{subsubsection.3.1.3}
-\contentsline {subsection}{\numberline {3.2}Propri\IeC {\'e}t\IeC {\'e} \FB@og maximal \FB@fg }{5}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Complexit\IeC {\'e}}{6}{subsubsection.3.1.3}
+\contentsline {subsection}{\numberline {3.2}Propri\IeC {\'e}t\IeC {\'e} \FB@og maximal \FB@fg }{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Principe}{6}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Validit\IeC {\'e}}{7}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Complexit\IeC {\'e}}{7}{subsubsection.3.2.3}
+\contentsline {section}{\numberline {4}G\IeC {\'e}n\IeC {\'e}ration d'un sous-graphe maximal}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Principe}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Validit\IeC {\'e}}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Complexit\IeC {\'e}}{8}{subsection.4.3}
+\contentsline {section}{\numberline {5}G\IeC {\'e}n\IeC {\'e}ration d'un sous-graphe maximum}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}M\IeC {\'e}thode exacte}{9}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Principe}{9}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Validit\IeC {\'e}}{10}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Complexit\IeC {\'e}}{10}{subsubsection.5.1.3}
+\contentsline {subsection}{\numberline {5.2}M\IeC {\'e}thode incompl\IeC {\`e}te}{11}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Principe}{11}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Validit\IeC {\'e}}{11}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Complexit\IeC {\'e}}{11}{subsubsection.5.2.3}
 \contentsfinish 

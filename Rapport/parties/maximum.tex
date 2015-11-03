@@ -1,0 +1,98 @@
+\section{Génération d'un sous-graphe maximum}
+
+Regroupés ici sont les deux algorithmes permettant d'obtenir des sous-graphes maximum. Le premier utilise une méthode exacte mais particulièrement lourde tandis que le second se contente d'une heuristique arbitraire offrant un sous-graphe s'approchant d'un maximum mais sans garantie précise sur sa `qualité'.
+
+\subsection{Méthode exacte}
+
+\subsubsection{Principe}
+
+\begin{verbatim}
+void maximum_exact(graphe G, sous-graphe S){
+    sous-graphe tmp
+    ensemble-de-sous-graphes ens
+    maximum_exact_rec(G,tmp,&ens,0)
+    extract_maximum(ens,S)
+}
+
+void maximum_exact_rec(graphe G, sous-graphe S, ensemble-de-sous-graphes ens, entier prof){
+    booléen continuer = vrai
+    entier n = taille de G
+    si(S non-vide)
+        si(is_desert(S,G))
+            si(is_maximal(S,G))
+                memorize(S,ens)
+                continuer = faux
+            fsi
+        sinon
+            continuer = faux
+        fsi
+    fsi
+    si(continuer)
+        si(prof<n)
+            sous-graphe S1,S2
+            copy(S,S1)
+            copy(S,S2)
+            S2[prof] = 1
+            maximum_exact_rec(G,S1,ens,prof+1)
+            maximum_exact_rec(G,S1,ens,prof+1)
+		    fsi
+    fsi
+}
+\end{verbatim}
+
+Voici une bréve explication des fonctions de plus bas niveau qui sont appelées par celles détaillées ici : 
+\begin{itemize}
+	\item{extract\_maximum} prend en paramètre une liste chainée de sous-graphes et un sous-graphe vide ; elle copie un des sous-graphes de taille maximum de l'ensemble dans le sous-graphe vide
+	\item{memorize} enregistre un sous-graphe donné dans une liste chainée de sous-graphes en créant un nouveau maillon et l'y copiant
+	\item{copy} copie, comme son nom l'indique, un sous-graphe source dans un sous-graphe destination, écrasant tout ce qui se trouvait dans ce dernier auparavant
+\end{itemize}
+Le principe de la partie récursive de l'algorithme est de vérifier dans un premier temps si on est dans un cas terminal, c'est-à-dire si le sous-graphe passé en paramètre est désert maximal. Si c'est le cas, on le stocke dans notre liste de sous-graphes et il n'y a pas d'appel récursif.
+
+Si ce n'est pas le cas (mais si le sous-graphe est tout de même désert, sinon il est inutile de continuer à développer cette chaîne d'appels) on crée deux branches, une où l'un des sommets de G est ajouté à S en fonction de la profondeur à laquelle on se trouve dans la suite d'appels récursifs, et une où S n'est pas modifié. 
+
+Puis deux appels récursifs sont faits, avec une profondeur incrémentée et chacun des deux sous-graphes mentionnés précédemment. Incidemment, nous allons créer tous les sous-graphes possibles de G et tester chacun d'entre eux pour mettre de côté tous les maximaux.
+
+Une fois ces appels récursifs terminés, c'est la fonction extract\_maximum qui parcourt tous les résultats obtenus et en extrait un de taille la plus grande. 
+
+\subsubsection{Validité}
+
+Tout d'abord, notre fonction récursive atteindra toujours sonc cas terminal. La mécanique est la même que pour la fonction de génération d'un sous-graphe maximal : nous rajoutons des sommets au sous-graphe, si bien que l'on arrive nécessairement dans un des deux cas terminaux  possibles (soit le sous-graphe cesse d'être désert, soit il devient désert maximal). 
+
+La principale différnce vient du fait que nous testons exhaustivement les sous-graphes possibles plutôt que de suivre un seul chemin  pseudo-aléatoire. 
+
+Le bon fonctionnement de la fonction maximum\_exact découle de la supposée validité des fonctions is\_maximal et is\_desert ; en effet, ce sont celles-ci qui permettent de stopper la récursion et de reconnaître les sous-graphes à mémoriser. 
+
+\subsubsection{Complexité}
+
+La complexité de cette fonction est plus longue à calculer que les précédentes. Chaque appel récursif en engendrant 2 nouveaux jusqu'à une profondeur maximum de n, où n est la taille de G, nous avons au final $2^n$ appels récursifs. 
+
+n d'entre eux sont des cas terminaux donc la complexité est de l'ordre de celle de la fonction memorize (à savoir $\theta(NMAX)$ où NMAX est le nombre maximum de sommets d'un graphe).
+
+$2^n-n$ sont des cas non terminaux d'une complexité de l'ordre de celle de copy (à savoir $\theta(NMAX)$).
+
+Ainsi l'ensemble de l'arbre d'appels récursifs est d'une complexité globale de l'ordre de $\theta(2^n \times NMAX)$. 
+
+Outre  ces appels récursifs, la fonction maximum\_exact fait appel à extract\_maximum qui appelle autant de fois copy qu'il y a de sous-graphes maximaux dans G, mais je n'ai pas su calculer la complexité de cette fonction.
+
+Pour conclure, je pense donc que la fonction maximum\_exact est d'une complexité exponentielle par rapport à la taille du graphe G en entrée, mais sans en être sûr :
+
+$\theta(2^n)$
+
+\emph{Temps d'exéc !!!} 
+
+\subsection{Méthode incomplète}
+
+\subsubsection{Principe}
+
+\begin{verbatim}
+
+\end{verbatim}
+
+
+\subsubsection{Validité}
+
+
+\subsubsection{Complexité}
+$\theta(n^3)$
+
+\emph{Temps d'exéc !!!} 

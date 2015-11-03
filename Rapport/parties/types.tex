@@ -2,7 +2,7 @@
 
 Les types présentés ci-après sont trouvables dans le fichier \verb|types.h|.
 
-\subsection{Représentation des graphes}
+\subsection{Graphes}
 
 Les graphes sont représentés à l'aide de la méthode des matrices d'adjacence. Ce choix a été fait pour des raisons de simplicité de la représentation principalement. 
 
@@ -10,10 +10,18 @@ En effet, même si elle s’avère  plus consommatrice en mémoire qu'une repré
 
 L'autre raison est la vérification en temps constant de l'existence d'un arc qui est utilisée à de nombreuses reprises dans le code. 
 
-\subsection{Représentation des sous-graphes}
+\subsection{Sous-graphes}
 
 Les sous-graphes sont représentés comme des tableaux de booléens dont la case d'indice $i$ vaut 1 si le sommet $i$ appartient au graphe. 
 
 Un alias nous permet de faciliter la représentation en donnant un nom explicite à ces tableaux et en fixant leur taille maximum comme étant le nombre de sommets que peut comporter un graphe au maximum. 
 
 Cette représentation a également l'inconvénient de la perte de mémoire, mais encore une fois la quantité de RAM disponible nous a mené à penser que ce ne serait pas un problème. 
+
+\subsection{Ensembles de sous-graphes}
+
+Cette structure de donnée est utile dans le cadre des sous-graphes maximum, où, comme expliqué plus tard, il faudra trouver un ensemble de sous-graphes maximaux et les comparer entre eux. 
+
+Il s'agit en fait d'une liste simplement chaînée de sous-graphes. Chaque maillon, appelé élément, comporte donc un sous-graphe et un pointeur sur son successeur. 
+
+Une représentation statique aurait été problématique car il était impossible de savoir à l'avance combien de sous-graphes il nous faudrait stocker. Qui plus est, même avec une importante mémoire vive disponible, une telle structure codée srtatiquement pourrait s'avérer problématique.

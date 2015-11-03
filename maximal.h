@@ -4,7 +4,7 @@
 #include "types.h"
 #include "verification.h"
 
-int maximal(graph g, subgraph max);
+void maximal(graph g, subgraph max);
 
 
 #endif

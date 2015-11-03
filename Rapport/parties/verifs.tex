@@ -9,13 +9,13 @@ Cette partie regroupe les deux algorithmes de vérification prenant en paramètr
 \subsubsection{Principe}
 
 \begin{verbatim}
-booléen is_desert(graphe g, sous-graphe s){
+booléen is_desert(graphe G, sous-graphe S){
     booléen desert = vrai
-    int n = taille de g
-    matrice arc = ensemble des arcs de g
+    entier n = taille de G
+    matrice arc = ensemble des arcs de G
     pour i de 0 à n
         pour j de i+1 à n
-            si (s[i]==1 et s[j]==1 et arc[i][j]==1) alors 
+            si (S[i]==1 et S[j]==1 et arc[i][j]==1) alors 
                 desert = faux
                 sortir des boucles
             fsi
@@ -37,17 +37,67 @@ Si rien ne nous arrête, alors on retourne vrai. En pratique pour éviter l'usag
 
 La rigueur d'une preuve formelle n'est pas requise pour ce projet, or si l'on ne va  pas jusque là, il n'y a que peu à rajouter : l'algorithme applique exhaustivement la définition d'un sous-graphe désert. 
 
-Tous les arcs  possibles sont dûment vérifiées compte tenu de cette définition (deux sommets d'un sous-graphe désert ne peuvent pas être reliés par un arc du graphe) ; le seul cas non-traité possible est celui où le sous-graphe comporte des sommets qui ne feraient pas partie du graphe de départ, car 
+Tous les arcs  possibles sont dûment vérifiées compte tenu de cette définition (deux sommets d'un sous-graphe désert ne peuvent pas être reliés par un arc du graphe) ; le seul cas non-traité possible est celui où le sous-graphe comporte des sommets qui ne feraient pas partie du graphe de départ, dans cette éventualité ces somemts sont simplement ignorés. 
 
 \subsubsection{Complexité}
 
-    expliquer l'algorithme en français,
-    l'écrire en pseudo-code,
-    justifier sa validité (il n'est pas nécessaire de faire des preuves par invariant ou par induction),
-    donner et justifier sa complexité.
+La taille de G (le nombre de sommets qui le compose) notée n s'obtient en temps constant car elle fait partie de la structure représentant un graphe, de même que la matrice arc. 
 
-    le temps de calcul (pensez à préciser la configuration de l'ordinateur utilisé pour les tests),
-    toutes données pertinentes comme, par exemple, la réponse oui/non au problème de décision considéré ou la taille de la clique maximale/maximum trouvée.
+Le pire des cas possibles est celui où le sous-graphe est bel et bien désert : il faudra parcourir l'intégralité des deux boucles pour arriver à cette conclusion, sachant que le traitement à l'intérieur des boucles est lui aussi en temps constant (trois tests). On a donc une complexité $C_1(n)$ de la forme suivante :
 
+$3\sum\limits_{k=0}^{n-1} k = \frac{3n(n+1)}{2}$
+
+Cela étant de l'ordre de $n^2$, on obtient la complexité suivante pour notre algorithme : 
+
+$\theta(n^2)$
+
+\emph{Temps d'exéc !!!} 
 
 \subsection{Propriété \og maximal \fg}
+
+\subsubsection{Principe}
+
+\begin{verbatim}
+booléen is_maximal(graphe G, sous-graphe S){
+    booléen maximal = vrai
+    entier n = taille de G
+    matrice arc = ensemble des arcs de G
+    si(is_desert(G,S) == 0) maximal = faux
+    sinon
+        entier i=0
+        tant que (i<n et maximal==vrai)
+            si(S[i] == 0)
+                S[i] = 1
+                maximal = is_desert(G,S)
+                S[i] = 1
+            fsi
+        ftq
+    fsi
+    retourner maximal
+}
+\end{verbatim}
+Le principe de cet algorithme est de parcourir l'ensemble des sommets de G non-présents dans S, et pour chacun d'entre eux effectuer la procédure suivante :
+\begin{enumerate}
+	\item ajouter ce sommet à S
+	\item regarder si S est désert 
+	\item retirer ce sommet de S
+\end{enumerate}
+Si une fois au moins on obtient un S désert dans l'étape 2, cela veut dire que notre sous-graphe n'est pas désert maximal et donc on quitte la boucle et renvoie faux, sinon on consomme les n tours de boucle puis on renvoie vrai. 
+
+\subsubsection{Validité}
+
+On sait qu'un sous-ensemble d'un sous-graphe désert sera lui-même désert. Ainsi pour un sous-graphe désert composé de k sommets il n'y a que 2 possibilités, soit il est maximal, soit il est strictement inclus dans un sous-graphe désert maximal M. 
+
+En ajoutant chaque sommet de G un à un à S, on obtient au moins une fois M, soit un sous-graphe S' tel que $S \subset S' \subset M$.
+
+De ce fait tester le non-respect de la propriété \og désert \fg{} pour chaque sous-graphe de taille k+1 contenant S nous permet de savoir si ce dernier est maximal ou pas.
+
+\subsubsection{Complexité}
+
+Le pire des cas est celui où S est désert maximal et ne comporte qu'un seul sommet (le cas de S vide impliquerait que G soit vide aussi, donc que n==0, ce qui fait que les boucles de la forme \verb|pour i de 0 à n| seraient somme toute assez rapides à exécuter). 
+
+Nous ferons dans ce cas n tours de boucle, dont n-1 mènent à un appel à \verb|is_desert| dont la complexité est en $\theta(n^2)$. Il y a de  plus un appel à \verb|is_desert| en-dehors de la boucle ce qui nous donne la complexité suivante pour \verb|is_maximal| : 
+
+$\theta(n^3)$
+
+\emph{Temps d'exéc !!!} 

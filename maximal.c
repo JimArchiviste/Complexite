@@ -1,6 +1,6 @@
 #include "maximal.h"
 
-int maximal(graph g, subgraph gmax)
+void maximal(graph g, subgraph gmax)
 {
 	int i;
 	for(i= 0; i<g.n ; i++) gmax[i] = 0;
@@ -12,6 +12,4 @@ int maximal(graph g, subgraph gmax)
 		if(!is_desert(gmax,g)) gmax[i] = 0;
 		i++;
 	}
-	
-	return is_maximal(gmax,g);
 }
