@@ -1,5 +1,10 @@
 #include "tools.h"
 
+/**
+ * \brief Draws a graph in the terminal
+ * \param g The source graph
+ * \author Alexandre Léonardi
+ */
 void draw_graph(graph g)
 {
 	int i, j;
@@ -13,6 +18,12 @@ void draw_graph(graph g)
 	}
 }
 
+/**
+ * \brief Draws a subgraph in the terminal
+ * \param s The source subgraph
+ * \param n The numer of vertices of s to take into account
+ * \author Alexandre Léonardi
+ */
 void draw_subgraph(subgraph s, int n)
 {
 	int i;
@@ -24,6 +35,13 @@ void draw_subgraph(subgraph s, int n)
 	printf("]\n");
 }
 
+/**
+ * \brief Adds a subgraph to a subgraph list
+ * \param s The subgraph to add
+ * \param *l The list to be modified
+ * \return The modified list
+ * \author Alexandre Léonardi
+ */
 subgraph_list memorize(subgraph s, subgraph_list *l)
 {
 	element *tmp = (element*)malloc(sizeof(element));
@@ -32,6 +50,12 @@ subgraph_list memorize(subgraph s, subgraph_list *l)
 	return tmp;	
 }
 
+/**
+ * \brief Copy a subgraph into another
+ * \param src The source subgraph
+ * \param dest The destination subgraph that will be overwritter entirely
+ * \author Alexandre Léonardi
+ */
 void copy(subgraph src, subgraph dest)
 {
 	int i;
@@ -41,6 +65,13 @@ void copy(subgraph src, subgraph dest)
 	}
 }
 
+/**
+ * \brief Checks if a string contains the end-of-file ('\0') character
+ * \param string The string to check
+ * \param n The size of the string
+ * \return 1 if the string ends with '\0', 0 otherwise
+ * \author Alexandre Léonardi
+ */
 int reached_EOF(char* string, size_t n)
 {
 	int i;
@@ -53,6 +84,12 @@ int reached_EOF(char* string, size_t n)
 	return eof;
 }
 
+/**
+ * \brief Checks if a subgraph is empty (i.e. Contains only 0s)
+ * \param g The subgraph to check
+ * \return 1 if s is empty, 0 otherwise
+ * \author Alexandre Léonardi
+ */
 int is_empty(subgraph s)
 {
 	int i,empty;
@@ -66,6 +103,12 @@ int is_empty(subgraph s)
 	return empty;
 }
 
+/**
+ * \brief Calculates the number of vertices in a subgraph
+ * \param s The said subgraph
+ * \return The number of vertices of the subgraph
+ * \author Alexandre Léonardi
+ */
 int length(subgraph s)
 {
 	int l,i;

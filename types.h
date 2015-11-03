@@ -5,7 +5,7 @@
 
 typedef struct
 {
-	int n;										//effective number of vertices of the graph
+	int n;
 	int edges[NB_VERTICES][NB_VERTICES];
 } graph;
 

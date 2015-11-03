@@ -1,5 +1,12 @@
 #include "maximal.h"
 
+/**
+ * \brief Generates a desert maximal subgraph of a given graph
+ * \param g The source graph
+ * \param gmax The initialy empty subgraph to turn into a desert maximal subgraph
+ * \author Loïc Vierin
+ */
+ //Complexity : theta(n^4)
 void maximal(graph g, subgraph gmax)
 {
 	int i;
